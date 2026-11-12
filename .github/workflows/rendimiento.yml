@@ -1,0 +1,83 @@
+# Análisis de rendimiento: mide el scraping de TODOS los juegos del REPO en modo secuencial y con
+# 1, 2, 4, 8, 16 y 32 juegos a la vez. Cada configuración corre en su propio servidor (4 núcleos)
+# AL MISMO TIEMPO, así ninguna hereda bloqueos ni límites de peticiones de otra.
+# Al terminar junta todas las mediciones en web/data/rendimiento.json y la web las muestra en /rendimiento.html.
+#
+# Se ejecuta a mano: pestaña Actions → "Rendimiento (speedup)" → Run workflow.
+# Usa los mismos secrets que el scraper, solo para LEER la lista de juegos (no guarda resultados).
+
+name: Rendimiento (speedup)
+
+on:
+  workflow_dispatch:
+    inputs:
+      limite:
+        description: "Medir solo los primeros N juegos (vacío = todos los del REPO)"
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  medir:
+    name: Medir ${{ matrix.config }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix:
+        config: ["secuencial", "1", "2", "4", "8", "16", "32"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Compilar
+        run: dotnet build scraper -c Release
+
+      - name: Medir configuración ${{ matrix.config }}
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          EXTRA=""
+          if [ -n "${{ github.event.inputs.limite }}" ]; then EXTRA="--limite ${{ github.event.inputs.limite }}"; fi
+          dotnet run --project scraper -c Release --no-build -- rendimiento --configs "${{ matrix.config }}" --salida "$RUNNER_TEMP/medicion.json" $EXTRA
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: medicion-${{ matrix.config }}
+          path: ${{ runner.temp }}/medicion.json
+
+  publicar:
+    name: Publicar resultados en la web
+    needs: medir
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: medicion-*
+          path: mediciones
+
+      - name: Juntar las mediciones
+        run: |
+          jq -s '{
+            generadoEn: (now | todate),
+            mediciones: (map(.mediciones) | add | sort_by(if .modo == "secuencial" then 0 else .hilos end))
+          }' mediciones/*/medicion.json > web/data/rendimiento.json
+          cat web/data/rendimiento.json
+
+      - name: Publicar en la web
+        run: |
+          git config user.name "preciopixel-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add web/data/rendimiento.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Mediciones de rendimiento $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git pull --rebase
+          git push

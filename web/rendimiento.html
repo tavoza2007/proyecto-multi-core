@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PrecioPixel · Rendimiento del scraper</title>
+  <meta name="description" content="Análisis de rendimiento del scraper multicore de PrecioPixel: tiempo, speedup, eficiencia y ley de Amdahl con 1, 2, 4 y más hilos.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M4 6h16l8 10-8 10H4z' fill='%23FFD23F' stroke='%231C1B3A' stroke-width='2.5' stroke-linejoin='round'/%3E%3Ccircle cx='20' cy='16' r='2.6' fill='%231C1B3A'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="barra barra--simple">
+    <a class="barra__marca barra__marca--enlace" href="./">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 6h16l8 10-8 10H4z"/><circle cx="20" cy="16" r="2.6"/></svg>
+      <div>
+        <p class="barra__nombre">PrecioPixel</p>
+        <p class="barra__lema">Rendimiento del scraper multicore</p>
+      </div>
+    </a>
+    <a class="boton boton--claro volver" href="./">Volver a las ofertas</a>
+  </header>
+
+  <main class="rend" id="rend">
+    <section class="rend__cabeza">
+      <h1>¿Cuánto más rápido es el scraping en paralelo?</h1>
+      <div id="titular" class="rend__titular"><p>Cargando mediciones…</p></div>
+      <p id="contexto" class="rend__contexto"></p>
+      <div id="fuentes" class="rend__fuentes" role="group" aria-label="Dónde se midió" hidden></div>
+    </section>
+
+    <section id="sin-datos" class="panel rend__vacio" hidden>
+      <h2>Todavía no hay mediciones</h2>
+      <p>En GitHub abre la pestaña <strong>Actions</strong>, elige <strong>Rendimiento (speedup)</strong> y presiona <strong>Run workflow</strong>.
+        Mide los juegos del repo en modo secuencial y con 1, 2, 4, 8, 16 y 32 hilos; tarda cerca de una hora y esta página se llena sola.</p>
+      <p>También se puede medir en una computadora con <code>rendimiento.bat</code>.</p>
+    </section>
+
+    <div id="contenido" class="rend__contenido" hidden>
+      <section class="rend__graficas">
+        <figure class="panel">
+          <figcaption>
+            <h2>Tiempo total</h2>
+            <p class="panel__nota">Minutos para revisar todos los juegos en todas las tiendas. Sec. = versión secuencial; los números son los hilos</p>
+          </figcaption>
+          <div class="grafica" id="g-tiempo"></div>
+        </figure>
+
+        <figure class="panel">
+          <figcaption>
+            <h2>Speedup</h2>
+            <p class="panel__nota">Veces más rápido que la versión secuencial, según los hilos del nivel 1</p>
+          </figcaption>
+          <ul class="leyenda" aria-hidden="true">
+            <li><i style="color: var(--serie-medida)"></i>Medido</li>
+            <li><i class="punteada" style="color: var(--serie-modelo)"></i>Modelo de Amdahl</li>
+            <li><i class="punteada" style="color: var(--tinta-suave)"></i>Ideal (sin parte secuencial)</li>
+          </ul>
+          <div class="grafica" id="g-speedup"></div>
+        </figure>
+
+        <figure class="panel">
+          <figcaption>
+            <h2>Eficiencia</h2>
+            <p class="panel__nota">Cuánto rinde cada hilo: 100 % significa que duplicar los hilos reduce el tiempo a la mitad</p>
+          </figcaption>
+          <div class="grafica" id="g-eficiencia"></div>
+        </figure>
+      </section>
+
+      <section class="panel">
+        <h2>Mediciones</h2>
+        <p class="panel__nota">Speedup = tiempo secuencial ÷ tiempo con N hilos. La eficiencia y Karp–Flatt se calculan sobre el nivel 1, tomando 1 hilo como base.</p>
+        <div class="tabla-scroll">
+          <table class="mediciones">
+            <thead>
+              <tr>
+                <th scope="col">Configuración</th>
+                <th scope="col">Tiempo</th>
+                <th scope="col">Speedup</th>
+                <th scope="col">Speedup vs 1 hilo</th>
+                <th scope="col">Eficiencia</th>
+                <th scope="col">Karp–Flatt</th>
+                <th scope="col">Peticiones</th>
+                <th scope="col">Juegos con datos</th>
+              </tr>
+            </thead>
+            <tbody id="tabla"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel rend__texto">
+        <h2>Ley de Amdahl</h2>
+        <p>Si una fracción <em>f</em> del trabajo no se puede repartir entre hilos, el speedup con <em>p</em> hilos es</p>
+        <p class="formula">S(p) = 1 / ( f + (1 − f) / p )</p>
+        <p>y nunca puede pasar de 1 / f, aunque se agreguen más hilos. <span id="amdahl-resultado"></span></p>
+        <h3>¿De dónde sale la parte secuencial en este programa?</h3>
+        <ul>
+          <li><strong>Preparación:</strong> leer la lista de juegos del repo en Firestore antes de empezar (<span id="amdahl-preparacion">unos segundos</span>). Se hace una sola vez.</li>
+          <li><strong>Límite por sitio:</strong> a cada tienda se le hacen como máximo 4 peticiones a la vez (a Amazon 2, con una pausa) para no ser bloqueados. Con muchos hilos, los juegos hacen fila para el mismo sitio y esa fila se comporta como trabajo secuencial.</li>
+          <li><strong>La última ronda:</strong> cuando quedan pocos juegos, los más lentos terminan solos y varios hilos se quedan sin trabajo.</li>
+          <li><strong>La red y los propios sitios:</strong> cuánto tarda cada página en responder no depende de nuestros hilos.</li>
+        </ul>
+        <h3>Dos cosas que se ven en las mediciones</h3>
+        <ul>
+          <li><strong>Con 1 hilo ya es más rápido que la versión secuencial</strong><span id="amdahl-uno"></span>: aunque el nivel 1 procese un juego a la vez, los niveles 2 y 3 consultan sus fuentes y sus tiendas en paralelo.</li>
+          <li><strong>El speedup puede superar el número de núcleos.</strong> El trabajo consiste casi todo en esperar respuestas de red: con <code>async/await</code> un núcleo atiende muchas peticiones a la vez, así que los hilos compiten por los sitios, no por el procesador.</li>
+        </ul>
+      </section>
+
+      <section class="panel rend__texto">
+        <h2>Cómo se midió</h2>
+        <ul id="metodo">
+          <li>Todas las configuraciones procesan <strong>los mismos juegos</strong> del repo, con todas las tiendas, Metacritic y HowLongToBeat.</li>
+          <li>No se usan resultados anteriores: cada corrida hace el trabajo completo.</li>
+          <li>Cada configuración empieza con un cliente HTTP nuevo y un calentamiento de 3 juegos que no se mide.</li>
+          <li>El tiempo es el del scraping; la lectura del repo se informa aparte como parte secuencial.</li>
+          <li id="metodo-github">En GitHub Actions cada configuración corre en su propio servidor y al mismo tiempo, para que ninguna herede bloqueos o límites de peticiones de otra.</li>
+          <li>Los sitios responden más rápido o más lento según la hora, así que hay algo de variación entre corridas.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <p>Proyecto de Programación Multicore · web scraping en C# con tres niveles de paralelismo, sin APIs. Comando del scraper: <code>dotnet run -- rendimiento</code>.</p>
+  </footer>
+
+  <script type="module" src="rendimiento.js"></script>
+</body>
+</html>

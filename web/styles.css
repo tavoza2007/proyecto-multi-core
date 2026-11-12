@@ -453,3 +453,83 @@ a { color: var(--accion); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ═══════════════ Página de rendimiento (rendimiento.html) ═══════════════ */
+:root { --serie-medida: #3A5BFF; --serie-modelo: #B07800; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --serie-medida: #6E86F5; --serie-modelo: #B8891A; }
+}
+:root[data-theme="dark"] { --serie-medida: #6E86F5; --serie-modelo: #B8891A; }
+
+.barra--simple { grid-template-columns: 1fr auto; }
+.barra__marca--enlace { color: inherit; text-decoration: none; }
+.barra__nombre { margin: 0; font: 800 1.6rem/1 var(--display); letter-spacing: -0.02em; }
+.volver { justify-self: end; white-space: nowrap; }
+
+.rend { max-width: 1180px; margin: 0 auto; padding: 32px clamp(16px, 3vw, 40px) 48px; display: grid; gap: 22px; }
+.rend > *, .rend__contenido > * { min-width: 0; }
+.rend__contenido:not([hidden]) { display: grid; gap: 22px; }
+.rend h1 { margin: 0 0 18px; font: 800 clamp(1.7rem, 3.4vw, 2.5rem)/1.08 var(--display); letter-spacing: -0.025em; max-width: 22ch; }
+.rend__titular { display: flex; align-items: center; gap: 18px 22px; flex-wrap: wrap; }
+.rend__titular p { margin: 0; max-width: 58ch; font-size: 1.05rem; }
+.rend__etiqueta { align-self: center; padding: 10px 22px 12px 30px; }
+.rend__etiqueta .etiqueta__precio { font-size: clamp(2.2rem, 5vw, 3rem); }
+.rend__contexto { margin: 14px 0 0; color: var(--tinta-suave); font-size: .9rem; }
+.rend__fuentes { display: inline-flex; gap: 4px; margin-top: 16px; padding: 4px; border: 1.5px solid var(--linea); border-radius: 999px; background: var(--tarjeta); }
+.rend__fuentes[hidden] { display: none; }
+.rend__fuentes button { border: 0; background: none; padding: 7px 16px; border-radius: 999px; cursor: pointer; font-weight: 700; color: var(--tinta-suave); }
+.rend__fuentes button[aria-pressed="true"] { background: var(--tinta); color: var(--niebla); }
+
+.panel { margin: 0; min-width: 0; padding: 20px 22px; background: var(--tarjeta); border-radius: var(--r-tarjeta); box-shadow: var(--sombra); }
+.panel h2 { margin: 0 0 4px; font: 700 1.2rem/1.2 var(--display); letter-spacing: -0.01em; }
+.panel h3 { margin: 20px 0 6px; font: 700 1rem/1.3 var(--display); }
+.panel__nota { margin: 0 0 14px; color: var(--tinta-suave); font-size: .86rem; }
+.rend__vacio p { max-width: 70ch; }
+
+.rend__graficas { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 22px; }
+.leyenda { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: -4px 0 10px; padding: 0; list-style: none; font-size: .82rem; color: var(--tinta-suave); }
+.leyenda i { display: inline-block; width: 20px; margin-right: 7px; vertical-align: middle; border-top: 3px solid currentColor; }
+.leyenda i.punteada { border-top-style: dashed; }
+
+.grafica { position: relative; height: 270px; }
+.grafica svg { display: block; overflow: visible; }
+.grafica .rejilla line { stroke: var(--linea); stroke-width: 1; }
+.grafica .base { stroke: var(--tinta-suave); stroke-width: 1; }
+.grafica .eje text { fill: var(--tinta-suave); font: 12px var(--texto); font-variant-numeric: tabular-nums; }
+.grafica .valor { fill: var(--tinta); font: 700 12px var(--texto); }
+.grafica .cruz { stroke: var(--tinta-suave); stroke-width: 1; stroke-dasharray: 3 3; }
+.grafica .zona { cursor: crosshair; }
+.grafica .marcador { stroke: var(--tarjeta); stroke-width: 2; }
+.tooltip {
+  position: absolute; z-index: 3; pointer-events: none;
+  transform: translate(-50%, calc(-100% - 12px));
+  padding: 7px 10px; border-radius: 8px;
+  background: var(--tinta); color: var(--niebla);
+  font-size: .8rem; line-height: 1.45; white-space: nowrap;
+  box-shadow: 0 6px 16px -8px rgba(0, 0, 0, .5);
+}
+.tooltip strong { display: block; margin-bottom: 2px; }
+.tooltip i { display: inline-block; width: 10px; height: 3px; margin-right: 6px; vertical-align: middle; background: currentColor; }
+
+.tabla-scroll { overflow-x: auto; }
+.mediciones { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.mediciones th, .mediciones td { padding: 9px 10px; border-bottom: 1px solid var(--linea); text-align: right; white-space: nowrap; }
+.mediciones th:first-child, .mediciones td:first-child { text-align: left; }
+.mediciones th { color: var(--tinta-suave); font-size: .8rem; font-weight: 700; }
+.mediciones tbody tr:last-child td { border-bottom: 0; }
+.mediciones .destacada td { font-weight: 700; }
+
+.rend__texto p, .rend__texto li { max-width: 78ch; }
+.rend__texto ul { padding-left: 20px; margin: 0; }
+.rend__texto li { margin-bottom: 6px; }
+.formula { display: inline-block; margin: 2px 0 6px; padding: 10px 16px; border-radius: 10px; background: var(--niebla); font: 700 1.05rem/1.3 var(--display); }
+.rend code, .pie code { font-size: .9em; background: var(--niebla); padding: 1px 5px; border-radius: 5px; }
+
+@media (max-width: 600px) {
+  .barra--simple .barra__lema { display: none; }
+  .barra__nombre { font-size: 1.3rem; }
+  .volver { font-size: .85rem; padding: 0 10px; }
+  .rend__graficas { grid-template-columns: 1fr; }
+  .grafica { height: 240px; }
+  .panel { padding: 16px; }
+}

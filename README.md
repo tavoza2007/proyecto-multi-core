@@ -18,6 +18,7 @@ Implementa el *Modelo de referencia – Programación Multicore v1.7*:
 | Score de Metacritic por consola del repo | `Fuentes/MetacriticScraper.cs` (una consulta por consola, en paralelo) |
 | Tiempo de How Long To Beat | `Fuentes/HowLongToBeatScraper.cs`; la página de cada juego se encuentra con `Fuentes/WikidataScraper.cs` y queda guardada en el repo (`urlsTienda.hltb`) |
 | Validar problemas de conexión y garantizar datos actualizados | `Red/ClienteHttpResiliente.cs` + reglas de "no publicar vacío" (ver abajo) |
+| Análisis de rendimiento: secuencial vs 1, 2, 4 y máximo de hilos, speedup, eficiencia, Amdahl | Comando `rendimiento`, workflow `rendimiento.yml` y página `web/rendimiento.html` (ver abajo) |
 | Web pública (no local), actualización recurrente | `web/` en Vercel/Netlify + GitHub Actions cada 6 h + `onSnapshot` en vivo |
 | Filtros: tipo, plataforma, formato, tienda | Barra lateral de la web (con conteos) |
 | Orden: nombre, precio, % descuento, Metacritic | Selector "Ordenar por" |
@@ -164,13 +165,29 @@ La página escucha Firestore con `onSnapshot`: cuando el scraper termina, los pr
 
 ---
 
-## Medir el paralelismo (para la presentación)
-```bash
-dotnet run -- benchmark --n 20
-```
-Corre los mismos 20 juegos en modo **secuencial** y en modo **paralelo (3 niveles)** y muestra tiempo, peticiones, hilos distintos usados y el **speedup**. También se puede forzar: `dotnet run -- scrape --secuencial`.
+## Análisis de rendimiento (speedup, eficiencia y Amdahl)
 
-El log muestra el hilo de cada línea (`h 12`, `h 37`…) para ver los niveles trabajando al mismo tiempo.
+El comando `rendimiento` hace el scraping de **todos los juegos del repo** varias veces, una por configuración, y guarda los tiempos en un JSON:
+
+```bash
+dotnet run -- rendimiento --configs secuencial,1,2,4,8,16,32 --salida ../web/data/rendimiento.json
+```
+
+- `secuencial`: los tres niveles uno por uno. Es la base del speedup.
+- `1`, `2`, `4`, `8`…: juegos procesados a la vez en el nivel 1 (`Parallel.ForEachAsync`); los niveles 2 y 3 siempre en paralelo. `max` = núcleos × 2.
+- Cada configuración usa un cliente HTTP nuevo, un calentamiento de 3 juegos que no se mide y ningún resultado anterior. No escribe nada en el repo.
+
+**En GitHub Actions** (recomendado): pestaña **Actions → Rendimiento (speedup) → Run workflow**. Cada configuración corre en su propio servidor de 4 núcleos al mismo tiempo (así ninguna hereda bloqueos de otra); al final se juntan en `web/data/rendimiento.json` y la web los muestra en **`/rendimiento.html`**: tiempo, speedup (medido, ideal y modelo de Amdahl), eficiencia, tabla con Karp–Flatt y la fracción secuencial ajustada. Tarda cerca de una hora (la corrida secuencial es la más larga).
+
+**En una computadora**: doble clic en `rendimiento.bat` (usa la clave de Firebase igual que `subir-juegos.bat`). Guarda `web/data/rendimiento-pc.json`; después de subirlo con `git push`, la página permite cambiar entre "GitHub Actions" y "Tu PC".
+
+Fórmulas que usa la página:
+- Speedup S(p) = T(secuencial) / T(p)
+- Eficiencia E(p) = S₁(p) / p, con S₁(p) = T(1 hilo) / T(p) (nivel 1)
+- Karp–Flatt e(p) = (1/S₁ − 1/p) / (1 − 1/p)
+- Amdahl S₁(p) = 1 / (f + (1 − f)/p); f se ajusta por mínimos cuadrados y el límite teórico es 1/f
+
+Para una prueba rápida con pocos juegos sigue estando `dotnet run -- benchmark --n 20` (secuencial contra paralelo). El log muestra el hilo de cada línea (`h 12`, `h 37`…) para ver los niveles trabajando al mismo tiempo.
 
 ## Configuración (`scraper/appsettings.json`)
 Todo se puede sobrescribir con variables de entorno con prefijo `PP_`, por ejemplo `PP_Paralelismo__MaxJuegosEnParalelo=32`.
@@ -187,7 +204,7 @@ Todo se puede sobrescribir con variables de entorno con prefijo `PP_`, por ejemp
 ## Estructura
 ```
 scraper/                C# .NET 8
-  Program.cs            comandos (scrape, benchmark, seed, add, remove, list)
+  Program.cs            comandos (scrape, benchmark, rendimiento, seed, add, remove, list)
   Motor/                MotorScraping (3 niveles) y DetectorOfertas
   Tiendas/              Steam, GOG, Nintendo eShop, PlayStation Store, Amazon
   Fuentes/              Metacritic, HowLongToBeat y Wikidata (encuentra la página de HLTB)
@@ -195,9 +212,9 @@ scraper/                C# .NET 8
   Repositorio/          Firestore y JSON local
   Modelos/              Juego, ResultadoJuego, PrecioTienda…
 seed/juegos.json        repo inicial (260 juegos)
-web/                    sitio público (HTML + CSS + JS, sin frameworks)
+web/                    sitio público (HTML + CSS + JS, sin frameworks); rendimiento.html = gráficas de speedup
 tools/generar_demo.py   datos de demostración para la web
-.github/workflows/      corrida programada
+.github/workflows/      corrida programada (scraper.yml) y análisis de rendimiento (rendimiento.yml)
 firestore.rules, vercel.json, netlify.toml
 ```
 
