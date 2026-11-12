@@ -1,0 +1,5765 @@
+[
+  {
+    "id": "super-mario-bros-wonder",
+    "titulo": "Super Mario Bros. Wonder",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2023,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "the-legend-of-zelda-ocarina-of-time-3d",
+    "titulo": "The Legend of Zelda: Ocarina of Time 3D",
+    "plataformas": [
+      "3ds"
+    ],
+    "anio": 2011,
+    "precioReferencia": 39.99,
+    "tipo": "remaster",
+    "formatos": [
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": "the-legend-of-zelda-ocarina-of-time-3d",
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "super-mario-3d-all-stars",
+    "titulo": "Super Mario 3D All-Stars",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2020,
+    "precioReferencia": 59.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "the-legend-of-zelda-breath-of-the-wild",
+    "titulo": "The Legend of Zelda: Breath of the Wild",
+    "plataformas": [
+      "switch",
+      "switch2"
+    ],
+    "anio": 2017,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "mario-kart-8-deluxe",
+    "titulo": "Mario Kart 8 Deluxe",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2017,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Carreras",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "final-fantasy-vii",
+    "titulo": "Final Fantasy VII",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 1997,
+    "precioReferencia": 15.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 39140,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "the-last-of-us-part-i",
+    "titulo": "The Last of Us Part I",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 69.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 1888930,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "uncharted-4-a-thiefs-end",
+    "titulo": "Uncharted 4: A Thief's End",
+    "plataformas": [
+      "ps4"
+    ],
+    "anio": 2016,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "god-of-war",
+    "titulo": "God of War",
+    "plataformas": [
+      "ps4",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 1593500,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "bloodborne",
+    "titulo": "Bloodborne",
+    "plataformas": [
+      "ps4"
+    ],
+    "anio": 2015,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "halo-the-master-chief-collection",
+    "titulo": "Halo: The Master Chief Collection",
+    "plataformas": [
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2014,
+    "precioReferencia": 39.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 976730,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "gears-of-war-reloaded",
+    "titulo": "Gears of War: Reloaded",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 39.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "red-dead-redemption",
+    "titulo": "Red Dead Redemption",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "pc"
+    ],
+    "anio": 2010,
+    "precioReferencia": 49.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Mundo abierto",
+    "steamAppId": 2668510,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "the-elder-scrolls-v-skyrim-special-edition",
+    "titulo": "The Elder Scrolls V: Skyrim Special Edition",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2011,
+    "precioReferencia": 39.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 489830,
+    "terminoBusqueda": null,
+    "metacriticSlug": "the-elder-scrolls-v-skyrim-special-edition",
+    "urlsTienda": {
+      "nintendo": "https://www.nintendo.com/us/store/products/the-elder-scrolls-v-skyrim-switch/"
+    },
+    "activo": true
+  },
+  {
+    "id": "halo-5-guardians",
+    "titulo": "Halo 5: Guardians",
+    "plataformas": [
+      "xbox-one"
+    ],
+    "anio": 2015,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "sonic-origins",
+    "titulo": "Sonic Origins",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 39.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": 1794960,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "streets-of-rage-4",
+    "titulo": "Streets of Rage 4",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Beat 'em up",
+    "steamAppId": 985890,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "sega-mega-drive-and-genesis-classics",
+    "titulo": "SEGA Mega Drive and Genesis Classics",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 29.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Retro",
+    "steamAppId": 34270,
+    "terminoBusqueda": "SEGA Genesis Classics",
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "sonic-adventure-dx",
+    "titulo": "Sonic Adventure DX",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2003,
+    "precioReferencia": 7.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": 71250,
+    "terminoBusqueda": null,
+    "metacriticSlug": "sonic-adventure-dx-directors-cut",
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "shenmue-i-and-ii",
+    "titulo": "Shenmue I & II",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 29.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": 758330,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "world-of-warcraft-the-war-within",
+    "titulo": "World of Warcraft: The War Within",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 49.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "MMORPG",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": "world-of-warcraft-the-war-within",
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "counter-strike-2",
+    "titulo": "Counter-Strike 2",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 0,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 730,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "minecraft",
+    "titulo": "Minecraft",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2011,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Sandbox",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "the-witcher-3-wild-hunt-complete-edition",
+    "titulo": "The Witcher 3: Wild Hunt - Complete Edition",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2015,
+    "precioReferencia": 49.99,
+    "tipo": "juego+dlc",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 292030,
+    "terminoBusqueda": "The Witcher 3 Wild Hunt",
+    "metacriticSlug": "the-witcher-3-wild-hunt",
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "half-life-2",
+    "titulo": "Half-Life 2",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2004,
+    "precioReferencia": 9.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 220,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "grand-theft-auto-v",
+    "titulo": "Grand Theft Auto V",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2013,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Mundo abierto",
+    "steamAppId": 271590,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "dark-souls-remastered",
+    "titulo": "Dark Souls: Remastered",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 39.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 570940,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "metal-gear-solid-master-collection-vol-1",
+    "titulo": "Metal Gear Solid: Master Collection Vol. 1",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 39.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Sigilo",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "resident-evil-4",
+    "titulo": "Resident Evil 4",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 39.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Survival horror",
+    "steamAppId": 2050650,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "overwatch",
+    "titulo": "Overwatch",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 0,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 2357570,
+    "terminoBusqueda": null,
+    "metacriticSlug": "overwatch-2",
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "super-mario-odyssey",
+    "titulo": "Super Mario Odyssey",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2017,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "super-mario-party-jamboree",
+    "titulo": "Super Mario Party Jamboree",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2024,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Party",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "super-mario-rpg",
+    "titulo": "Super Mario RPG",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2023,
+    "precioReferencia": 59.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "paper-mario-the-thousand-year-door",
+    "titulo": "Paper Mario: The Thousand-Year Door",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2024,
+    "precioReferencia": 59.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "princess-peach-showtime",
+    "titulo": "Princess Peach: Showtime!",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2024,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "luigis-mansion-3",
+    "titulo": "Luigi's Mansion 3",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2019,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "luigis-mansion-2-hd",
+    "titulo": "Luigi's Mansion 2 HD",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2024,
+    "precioReferencia": 59.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "mario-kart-world",
+    "titulo": "Mario Kart World",
+    "plataformas": [
+      "switch2"
+    ],
+    "anio": 2025,
+    "precioReferencia": 79.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Carreras",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "donkey-kong-bananza",
+    "titulo": "Donkey Kong Bananza",
+    "plataformas": [
+      "switch2"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "donkey-kong-country-returns-hd",
+    "titulo": "Donkey Kong Country Returns HD",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2025,
+    "precioReferencia": 59.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "donkey-kong-country-tropical-freeze",
+    "titulo": "Donkey Kong Country: Tropical Freeze",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2018,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "the-legend-of-zelda-tears-of-the-kingdom",
+    "titulo": "The Legend of Zelda: Tears of the Kingdom",
+    "plataformas": [
+      "switch",
+      "switch2"
+    ],
+    "anio": 2023,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "the-legend-of-zelda-links-awakening",
+    "titulo": "The Legend of Zelda: Link's Awakening",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2019,
+    "precioReferencia": 59.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "the-legend-of-zelda-skyward-sword-hd",
+    "titulo": "The Legend of Zelda: Skyward Sword HD",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2021,
+    "precioReferencia": 59.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "the-legend-of-zelda-echoes-of-wisdom",
+    "titulo": "The Legend of Zelda: Echoes of Wisdom",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2024,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "hyrule-warriors-age-of-imprisonment",
+    "titulo": "Hyrule Warriors: Age of Imprisonment",
+    "plataformas": [
+      "switch2"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "metroid-dread",
+    "titulo": "Metroid Dread",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2021,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Metroidvania",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "metroid-prime-remastered",
+    "titulo": "Metroid Prime Remastered",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2023,
+    "precioReferencia": 39.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "metroid-prime-4-beyond",
+    "titulo": "Metroid Prime 4: Beyond",
+    "plataformas": [
+      "switch",
+      "switch2"
+    ],
+    "anio": 2025,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "super-smash-bros-ultimate",
+    "titulo": "Super Smash Bros. Ultimate",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2018,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Pelea",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "splatoon-3",
+    "titulo": "Splatoon 3",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2022,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "animal-crossing-new-horizons",
+    "titulo": "Animal Crossing: New Horizons",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2020,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Simulación",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "pokemon-scarlet",
+    "titulo": "Pokémon Scarlet",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2022,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "pokemon-violet",
+    "titulo": "Pokémon Violet",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2022,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "pokemon-legends-arceus",
+    "titulo": "Pokémon Legends: Arceus",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2022,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "pokemon-legends-z-a",
+    "titulo": "Pokémon Legends: Z-A",
+    "plataformas": [
+      "switch",
+      "switch2"
+    ],
+    "anio": 2025,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "kirby-and-the-forgotten-land",
+    "titulo": "Kirby and the Forgotten Land",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2022,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "kirby-air-riders",
+    "titulo": "Kirby Air Riders",
+    "plataformas": [
+      "switch2"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Carreras",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "fire-emblem-three-houses",
+    "titulo": "Fire Emblem: Three Houses",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2019,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Estrategia",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "fire-emblem-engage",
+    "titulo": "Fire Emblem Engage",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2023,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Estrategia",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "xenoblade-chronicles-3",
+    "titulo": "Xenoblade Chronicles 3",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2022,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "xenoblade-chronicles-x-definitive-edition",
+    "titulo": "Xenoblade Chronicles X: Definitive Edition",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2025,
+    "precioReferencia": 59.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "pikmin-4",
+    "titulo": "Pikmin 4",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2023,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Estrategia",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "bayonetta-3",
+    "titulo": "Bayonetta 3",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2022,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "astral-chain",
+    "titulo": "Astral Chain",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2019,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "nintendo-switch-sports",
+    "titulo": "Nintendo Switch Sports",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2022,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Deportes",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "mario-rabbids-sparks-of-hope",
+    "titulo": "Mario + Rabbids Sparks of Hope",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2022,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Estrategia",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "super-mario-3d-world-bowsers-fury",
+    "titulo": "Super Mario 3D World + Bowser's Fury",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2021,
+    "precioReferencia": 59.99,
+    "tipo": "juego+dlc",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "new-super-mario-bros-u-deluxe",
+    "titulo": "New Super Mario Bros. U Deluxe",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2019,
+    "precioReferencia": 59.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "yoshis-crafted-world",
+    "titulo": "Yoshi's Crafted World",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2019,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "super-mario-galaxy-super-mario-galaxy-2",
+    "titulo": "Super Mario Galaxy + Super Mario Galaxy 2",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "hades",
+    "titulo": "Hades",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Roguelike",
+    "steamAppId": 1145360,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "hades-ii",
+    "titulo": "Hades II",
+    "plataformas": [
+      "switch",
+      "switch2",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Roguelike",
+    "steamAppId": 1145350,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "hollow-knight",
+    "titulo": "Hollow Knight",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2017,
+    "precioReferencia": 14.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Metroidvania",
+    "steamAppId": 367520,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "hollow-knight-silksong",
+    "titulo": "Hollow Knight: Silksong",
+    "plataformas": [
+      "switch",
+      "switch2",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Metroidvania",
+    "steamAppId": 1030300,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "celeste",
+    "titulo": "Celeste",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": 504230,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "stardew-valley",
+    "titulo": "Stardew Valley",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2016,
+    "precioReferencia": 14.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Simulación",
+    "steamAppId": 413150,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "cuphead",
+    "titulo": "Cuphead",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2017,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Run and gun",
+    "steamAppId": 268910,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "dead-cells",
+    "titulo": "Dead Cells",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Roguelike",
+    "steamAppId": 588650,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "slay-the-spire",
+    "titulo": "Slay the Spire",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Cartas",
+    "steamAppId": 646570,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "undertale",
+    "titulo": "Undertale",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "pc"
+    ],
+    "anio": 2015,
+    "precioReferencia": 14.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 391540,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "cult-of-the-lamb",
+    "titulo": "Cult of the Lamb",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Roguelike",
+    "steamAppId": 1313140,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "sea-of-stars",
+    "titulo": "Sea of Stars",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 34.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1244090,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "inside",
+    "titulo": "Inside",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2016,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Puzzle",
+    "steamAppId": 304430,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "limbo",
+    "titulo": "Limbo",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2010,
+    "precioReferencia": 9.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Puzzle",
+    "steamAppId": 48000,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "tunic",
+    "titulo": "Tunic",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": 553420,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "balatro",
+    "titulo": "Balatro",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 14.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Cartas",
+    "steamAppId": 2379780,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "pizza-tower",
+    "titulo": "Pizza Tower",
+    "plataformas": [
+      "switch",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": 2231450,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "animal-well",
+    "titulo": "Animal Well",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Metroidvania",
+    "steamAppId": 813230,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "dave-the-diver",
+    "titulo": "Dave the Diver",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": 1868140,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "prince-of-persia-the-lost-crown",
+    "titulo": "Prince of Persia: The Lost Crown",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 49.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Metroidvania",
+    "steamAppId": 2751000,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "ori-and-the-will-of-the-wisps",
+    "titulo": "Ori and the Will of the Wisps",
+    "plataformas": [
+      "switch",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Metroidvania",
+    "steamAppId": 1057090,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "ori-and-the-blind-forest-definitive-edition",
+    "titulo": "Ori and the Blind Forest: Definitive Edition",
+    "plataformas": [
+      "switch",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2016,
+    "precioReferencia": 19.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Metroidvania",
+    "steamAppId": 387290,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "katana-zero",
+    "titulo": "Katana ZERO",
+    "plataformas": [
+      "switch",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 14.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 460950,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "enter-the-gungeon",
+    "titulo": "Enter the Gungeon",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2016,
+    "precioReferencia": 14.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Roguelike",
+    "steamAppId": 311690,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "risk-of-rain-2",
+    "titulo": "Risk of Rain 2",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Roguelike",
+    "steamAppId": 632360,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "outer-wilds",
+    "titulo": "Outer Wilds",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Exploración",
+    "steamAppId": 753640,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "return-of-the-obra-dinn",
+    "titulo": "Return of the Obra Dinn",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Misterio",
+    "steamAppId": 653530,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "dredge",
+    "titulo": "Dredge",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": 1562430,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "unpacking",
+    "titulo": "Unpacking",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Puzzle",
+    "steamAppId": 1135690,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "a-short-hike",
+    "titulo": "A Short Hike",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 7.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Exploración",
+    "steamAppId": 1055540,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "spiritfarer",
+    "titulo": "Spiritfarer",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Simulación",
+    "steamAppId": 972660,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "gris",
+    "titulo": "Gris",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 16.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": 683320,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "neon-white",
+    "titulo": "Neon White",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 1533420,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "ultrakill",
+    "titulo": "Ultrakill",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 1229490,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "vampire-survivors",
+    "titulo": "Vampire Survivors",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 4.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Roguelike",
+    "steamAppId": 1794680,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "among-us",
+    "titulo": "Among Us",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 4.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Social",
+    "steamAppId": 945360,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "terraria",
+    "titulo": "Terraria",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2011,
+    "precioReferencia": 9.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Sandbox",
+    "steamAppId": 105600,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "lethal-company",
+    "titulo": "Lethal Company",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 9.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Terror cooperativo",
+    "steamAppId": 1966720,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "blasphemous-2",
+    "titulo": "Blasphemous 2",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Metroidvania",
+    "steamAppId": 2114740,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "chained-echoes",
+    "titulo": "Chained Echoes",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1229240,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "cocoon",
+    "titulo": "Cocoon",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Puzzle",
+    "steamAppId": 1497440,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "demons-souls",
+    "titulo": "Demon's Souls",
+    "plataformas": [
+      "ps5"
+    ],
+    "anio": 2020,
+    "precioReferencia": 69.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "returnal",
+    "titulo": "Returnal",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Roguelike",
+    "steamAppId": 1649240,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "ratchet-and-clank-rift-apart",
+    "titulo": "Ratchet & Clank: Rift Apart",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 1895880,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "marvels-spider-man-remastered",
+    "titulo": "Marvel's Spider-Man Remastered",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 59.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 1817070,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "marvels-spider-man-miles-morales",
+    "titulo": "Marvel's Spider-Man: Miles Morales",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 49.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 1817190,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "marvels-spider-man-2",
+    "titulo": "Marvel's Spider-Man 2",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 2651280,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "ghost-of-tsushima-directors-cut",
+    "titulo": "Ghost of Tsushima Director's Cut",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 59.99,
+    "tipo": "juego+dlc",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 2215430,
+    "terminoBusqueda": null,
+    "metacriticSlug": "ghost-of-tsushima-directors-cut",
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "ghost-of-yotei",
+    "titulo": "Ghost of Yōtei",
+    "plataformas": [
+      "ps5"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "horizon-zero-dawn-remastered",
+    "titulo": "Horizon Zero Dawn Remastered",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 49.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 2561580,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "horizon-forbidden-west-complete-edition",
+    "titulo": "Horizon Forbidden West Complete Edition",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 59.99,
+    "tipo": "juego+dlc",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 2420110,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "god-of-war-ragnarok",
+    "titulo": "God of War Ragnarök",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 2322010,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "astro-bot",
+    "titulo": "Astro Bot",
+    "plataformas": [
+      "ps5"
+    ],
+    "anio": 2024,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "gran-turismo-7",
+    "titulo": "Gran Turismo 7",
+    "plataformas": [
+      "ps5",
+      "ps4"
+    ],
+    "anio": 2022,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Carreras",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "death-stranding-directors-cut",
+    "titulo": "Death Stranding Director's Cut",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 39.99,
+    "tipo": "juego+dlc",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": 1850570,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "death-stranding-2-on-the-beach",
+    "titulo": "Death Stranding 2: On the Beach",
+    "plataformas": [
+      "ps5"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "days-gone",
+    "titulo": "Days Gone",
+    "plataformas": [
+      "ps4",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 49.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Mundo abierto",
+    "steamAppId": 1259420,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "stellar-blade",
+    "titulo": "Stellar Blade",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 3489700,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "rise-of-the-ronin",
+    "titulo": "Rise of the Ronin",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 1340990,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "the-last-of-us-part-ii-remastered",
+    "titulo": "The Last of Us Part II Remastered",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 49.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 2531310,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "uncharted-legacy-of-thieves-collection",
+    "titulo": "Uncharted: Legacy of Thieves Collection",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 49.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 1659420,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "persona-5-royal",
+    "titulo": "Persona 5 Royal",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1687950,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "persona-4-golden",
+    "titulo": "Persona 4 Golden",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 19.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1113000,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "persona-3-reload",
+    "titulo": "Persona 3 Reload",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 69.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 2161700,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "metaphor-refantazio",
+    "titulo": "Metaphor: ReFantazio",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 2679460,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "shin-megami-tensei-v-vengeance",
+    "titulo": "Shin Megami Tensei V: Vengeance",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 59.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1875830,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "final-fantasy-vii-remake-intergrade",
+    "titulo": "Final Fantasy VII Remake Intergrade",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 69.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1462040,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "final-fantasy-vii-rebirth",
+    "titulo": "Final Fantasy VII Rebirth",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 2909400,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "final-fantasy-xvi",
+    "titulo": "Final Fantasy XVI",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 49.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 2515020,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "final-fantasy-x-x-2-hd-remaster",
+    "titulo": "Final Fantasy X/X-2 HD Remaster",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2014,
+    "precioReferencia": 29.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 359870,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "final-fantasy-xiv-online",
+    "titulo": "Final Fantasy XIV Online",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2013,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "MMORPG",
+    "steamAppId": 39210,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "dragon-quest-iii-hd-2d-remake",
+    "titulo": "Dragon Quest III HD-2D Remake",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 59.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "octopath-traveler-ii",
+    "titulo": "Octopath Traveler II",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1971650,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "nier-automata",
+    "titulo": "NieR:Automata",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2017,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 524220,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {
+      "nintendo": "https://www.nintendo.com/us/store/products/nier-automata-the-end-of-yorha-edition-switch/"
+    },
+    "activo": true
+  },
+  {
+    "id": "yakuza-0",
+    "titulo": "Yakuza 0",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2017,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 638970,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "like-a-dragon-infinite-wealth",
+    "titulo": "Like a Dragon: Infinite Wealth",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 2072450,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "elden-ring",
+    "titulo": "Elden Ring",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 1245620,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "elden-ring-nightreign",
+    "titulo": "Elden Ring Nightreign",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 2622380,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "dark-souls-iii",
+    "titulo": "Dark Souls III",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2016,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 374320,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "sekiro-shadows-die-twice",
+    "titulo": "Sekiro: Shadows Die Twice",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 814380,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "armored-core-vi-fires-of-rubicon",
+    "titulo": "Armored Core VI: Fires of Rubicon",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 1888160,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {
+      "playstation": "https://store.playstation.com/en-us/concept/10001815"
+    },
+    "activo": true
+  },
+  {
+    "id": "lies-of-p",
+    "titulo": "Lies of P",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 1627720,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "black-myth-wukong",
+    "titulo": "Black Myth: Wukong",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 2358720,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "halo-infinite",
+    "titulo": "Halo Infinite",
+    "plataformas": [
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 1240440,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "forza-horizon-5",
+    "titulo": "Forza Horizon 5",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Carreras",
+    "steamAppId": 1551360,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "forza-motorsport",
+    "titulo": "Forza Motorsport",
+    "plataformas": [
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Carreras",
+    "steamAppId": 2440510,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "gears-5",
+    "titulo": "Gears 5",
+    "plataformas": [
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 1097840,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "starfield",
+    "titulo": "Starfield",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1716740,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "indiana-jones-and-the-great-circle",
+    "titulo": "Indiana Jones and the Great Circle",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": 2677660,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "sea-of-thieves",
+    "titulo": "Sea of Thieves",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": 1172620,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "hi-fi-rush",
+    "titulo": "Hi-Fi Rush",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Ritmo",
+    "steamAppId": 1817230,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "microsoft-flight-simulator-2024",
+    "titulo": "Microsoft Flight Simulator 2024",
+    "plataformas": [
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Simulación",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "age-of-empires-ii-definitive-edition",
+    "titulo": "Age of Empires II: Definitive Edition",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 34.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Estrategia",
+    "steamAppId": 813780,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "avowed",
+    "titulo": "Avowed",
+    "plataformas": [
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 2457220,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "south-of-midnight",
+    "titulo": "South of Midnight",
+    "plataformas": [
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "ninja-gaiden-2-black",
+    "titulo": "Ninja Gaiden 2 Black",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 49.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "the-outer-worlds-2",
+    "titulo": "The Outer Worlds 2",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1449110,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "doom-the-dark-ages",
+    "titulo": "DOOM: The Dark Ages",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 3017860,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "doom-eternal",
+    "titulo": "DOOM Eternal",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 782330,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "doom-2016",
+    "titulo": "DOOM (2016)",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2016,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 379720,
+    "terminoBusqueda": "DOOM",
+    "metacriticSlug": "doom",
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "fallout-4",
+    "titulo": "Fallout 4",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2015,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 377160,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "fallout-new-vegas",
+    "titulo": "Fallout: New Vegas",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2010,
+    "precioReferencia": 9.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "RPG",
+    "steamAppId": 22380,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "fallout-76",
+    "titulo": "Fallout 76",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1151340,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "the-elder-scrolls-iv-oblivion-remastered",
+    "titulo": "The Elder Scrolls IV: Oblivion Remastered",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 49.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 2623190,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "red-dead-redemption-2",
+    "titulo": "Red Dead Redemption 2",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Mundo abierto",
+    "steamAppId": 1174180,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "grand-theft-auto-iv",
+    "titulo": "Grand Theft Auto IV",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2008,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Mundo abierto",
+    "steamAppId": 12210,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "grand-theft-auto-the-trilogy-the-definitive-edition",
+    "titulo": "Grand Theft Auto: The Trilogy - The Definitive Edition",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 59.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Mundo abierto",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "cyberpunk-2077",
+    "titulo": "Cyberpunk 2077",
+    "plataformas": [
+      "switch2",
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1091500,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "baldurs-gate-3",
+    "titulo": "Baldur's Gate 3",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1086940,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "disco-elysium-the-final-cut",
+    "titulo": "Disco Elysium - The Final Cut",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 39.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 632470,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "divinity-original-sin-2-definitive-edition",
+    "titulo": "Divinity: Original Sin 2 - Definitive Edition",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2017,
+    "precioReferencia": 44.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 435150,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "hogwarts-legacy",
+    "titulo": "Hogwarts Legacy",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 990080,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "mass-effect-legendary-edition",
+    "titulo": "Mass Effect Legendary Edition",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 59.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1328670,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "star-wars-jedi-fallen-order",
+    "titulo": "Star Wars Jedi: Fallen Order",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 1172380,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "star-wars-jedi-survivor",
+    "titulo": "Star Wars Jedi: Survivor",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 1774580,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "star-wars-outlaws",
+    "titulo": "Star Wars Outlaws",
+    "plataformas": [
+      "switch2",
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": 2842040,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "it-takes-two",
+    "titulo": "It Takes Two",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Cooperativo",
+    "steamAppId": 1426210,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "split-fiction",
+    "titulo": "Split Fiction",
+    "plataformas": [
+      "switch2",
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 49.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Cooperativo",
+    "steamAppId": 2001120,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "overcooked-2",
+    "titulo": "Overcooked! 2",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 24.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Cooperativo",
+    "steamAppId": 728880,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "titanfall-2",
+    "titulo": "Titanfall 2",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2016,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 1237970,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "portal",
+    "titulo": "Portal",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2007,
+    "precioReferencia": 9.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Puzzle",
+    "steamAppId": 400,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "portal-2",
+    "titulo": "Portal 2",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2011,
+    "precioReferencia": 9.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Puzzle",
+    "steamAppId": 620,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "portal-companion-collection",
+    "titulo": "Portal: Companion Collection",
+    "plataformas": [
+      "switch"
+    ],
+    "anio": 2022,
+    "precioReferencia": 19.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Puzzle",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "half-life-alyx",
+    "titulo": "Half-Life: Alyx",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Realidad virtual",
+    "steamAppId": 546560,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "palworld",
+    "titulo": "Palworld",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Supervivencia",
+    "steamAppId": 1623730,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "helldivers-2",
+    "titulo": "Helldivers 2",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 553850,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "deep-rock-galactic",
+    "titulo": "Deep Rock Galactic",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Cooperativo",
+    "steamAppId": 548430,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "phasmophobia",
+    "titulo": "Phasmophobia",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Terror cooperativo",
+    "steamAppId": 739630,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "valheim",
+    "titulo": "Valheim",
+    "plataformas": [
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Supervivencia",
+    "steamAppId": 892970,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "no-mans-sky",
+    "titulo": "No Man's Sky",
+    "plataformas": [
+      "switch",
+      "switch2",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2016,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Exploración",
+    "steamAppId": 275850,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "subnautica",
+    "titulo": "Subnautica",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Supervivencia",
+    "steamAppId": 264710,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "satisfactory",
+    "titulo": "Satisfactory",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Construcción",
+    "steamAppId": 526870,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "factorio",
+    "titulo": "Factorio",
+    "plataformas": [
+      "switch",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 35.0,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Construcción",
+    "steamAppId": 427520,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "rimworld",
+    "titulo": "RimWorld",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 34.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Simulación",
+    "steamAppId": 294100,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "cities-skylines-ii",
+    "titulo": "Cities: Skylines II",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 49.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Simulación",
+    "steamAppId": 949230,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "sid-meiers-civilization-vi",
+    "titulo": "Sid Meier's Civilization VI",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2016,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Estrategia",
+    "steamAppId": 289070,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "sid-meiers-civilization-vii",
+    "titulo": "Sid Meier's Civilization VII",
+    "plataformas": [
+      "switch",
+      "switch2",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Estrategia",
+    "steamAppId": 1295660,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "crusader-kings-iii",
+    "titulo": "Crusader Kings III",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 49.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Estrategia",
+    "steamAppId": 1158310,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "total-war-warhammer-iii",
+    "titulo": "Total War: Warhammer III",
+    "plataformas": [
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital"
+    ],
+    "genero": "Estrategia",
+    "steamAppId": 1142710,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "xcom-2",
+    "titulo": "XCOM 2",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2016,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Estrategia",
+    "steamAppId": 268500,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {
+      "nintendo": "https://www.nintendo.com/us/store/products/xcom-2-collection-switch/"
+    },
+    "activo": true
+  },
+  {
+    "id": "monster-hunter-world",
+    "titulo": "Monster Hunter: World",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 582010,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "monster-hunter-rise",
+    "titulo": "Monster Hunter Rise",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 1446780,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "monster-hunter-wilds",
+    "titulo": "Monster Hunter Wilds",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 2246340,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "devil-may-cry-5",
+    "titulo": "Devil May Cry 5",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 601150,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "dragons-dogma-2",
+    "titulo": "Dragon's Dogma 2",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 2054970,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "resident-evil-2",
+    "titulo": "Resident Evil 2",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 39.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Survival horror",
+    "steamAppId": 883710,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "resident-evil-3",
+    "titulo": "Resident Evil 3",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 39.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Survival horror",
+    "steamAppId": 952060,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "resident-evil-7-biohazard",
+    "titulo": "Resident Evil 7 Biohazard",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2017,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Survival horror",
+    "steamAppId": 418370,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "resident-evil-village",
+    "titulo": "Resident Evil Village",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Survival horror",
+    "steamAppId": 1196590,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "street-fighter-6",
+    "titulo": "Street Fighter 6",
+    "plataformas": [
+      "switch2",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Pelea",
+    "steamAppId": 1364780,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "tekken-8",
+    "titulo": "Tekken 8",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Pelea",
+    "steamAppId": 1778820,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "mortal-kombat-1",
+    "titulo": "Mortal Kombat 1",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Pelea",
+    "steamAppId": 1971870,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "guilty-gear-strive",
+    "titulo": "Guilty Gear -Strive-",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Pelea",
+    "steamAppId": 1384160,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "diablo-iv",
+    "titulo": "Diablo IV",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": 2344520,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "diablo-ii-resurrected",
+    "titulo": "Diablo II: Resurrected",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 39.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción RPG",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "control",
+    "titulo": "Control",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 870780,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "alan-wake-2",
+    "titulo": "Alan Wake 2",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 49.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Survival horror",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "stray",
+    "titulo": "Stray",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 29.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": 1332010,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "silent-hill-2",
+    "titulo": "Silent Hill 2",
+    "plataformas": [
+      "ps5",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 69.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Survival horror",
+    "steamAppId": 2124490,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "silent-hill-f",
+    "titulo": "Silent Hill f",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Survival horror",
+    "steamAppId": 2947440,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "dead-space",
+    "titulo": "Dead Space",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 59.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Survival horror",
+    "steamAppId": 1693980,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "clair-obscur-expedition-33",
+    "titulo": "Clair Obscur: Expedition 33",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 49.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1903340,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "kingdom-come-deliverance-ii",
+    "titulo": "Kingdom Come: Deliverance II",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "RPG",
+    "steamAppId": 1771300,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "sonic-frontiers",
+    "titulo": "Sonic Frontiers",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": 1237320,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "sonic-mania",
+    "titulo": "Sonic Mania",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2017,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": 584400,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "sonic-x-shadow-generations",
+    "titulo": "Sonic X Shadow Generations",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 49.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": 2513280,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "metal-gear-solid-v-the-phantom-pain",
+    "titulo": "Metal Gear Solid V: The Phantom Pain",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2015,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Sigilo",
+    "steamAppId": 287700,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "metal-gear-solid-delta-snake-eater",
+    "titulo": "Metal Gear Solid Delta: Snake Eater",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Sigilo",
+    "steamAppId": 2417610,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "assassins-creed-valhalla",
+    "titulo": "Assassin's Creed Valhalla",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 2208920,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "assassins-creed-mirage",
+    "titulo": "Assassin's Creed Mirage",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 49.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 3035570,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "assassins-creed-shadows",
+    "titulo": "Assassin's Creed Shadows",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 3159330,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "far-cry-6",
+    "titulo": "Far Cry 6",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 59.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 2369390,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "rayman-legends",
+    "titulo": "Rayman Legends",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2013,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": 242550,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {
+      "nintendo": "https://www.nintendo.com/us/store/products/rayman-legends-definitive-edition-switch/"
+    },
+    "activo": true
+  },
+  {
+    "id": "battlefield-6",
+    "titulo": "Battlefield 6",
+    "plataformas": [
+      "ps5",
+      "xbox-series",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 2807960,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "call-of-duty-black-ops-6",
+    "titulo": "Call of Duty: Black Ops 6",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": 2933620,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "call-of-duty-black-ops-7",
+    "titulo": "Call of Duty: Black Ops 7",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Shooter",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "ea-sports-fc-26",
+    "titulo": "EA Sports FC 26",
+    "plataformas": [
+      "switch",
+      "switch2",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Deportes",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "nba-2k26",
+    "titulo": "NBA 2K26",
+    "plataformas": [
+      "switch",
+      "switch2",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 69.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Deportes",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "minecraft-dungeons",
+    "titulo": "Minecraft Dungeons",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2020,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 1672970,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "crash-bandicoot-n-sane-trilogy",
+    "titulo": "Crash Bandicoot N. Sane Trilogy",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2017,
+    "precioReferencia": 39.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": 731490,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "spyro-reignited-trilogy",
+    "titulo": "Spyro Reignited Trilogy",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2018,
+    "precioReferencia": 39.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": 996580,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "tony-hawks-pro-skater-3-4",
+    "titulo": "Tony Hawk's Pro Skater 3 + 4",
+    "plataformas": [
+      "switch",
+      "switch2",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2025,
+    "precioReferencia": 49.99,
+    "tipo": "remaster",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Deportes",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "lego-star-wars-the-skywalker-saga",
+    "titulo": "LEGO Star Wars: The Skywalker Saga",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2022,
+    "precioReferencia": 49.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 920210,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "batman-arkham-knight",
+    "titulo": "Batman: Arkham Knight",
+    "plataformas": [
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2015,
+    "precioReferencia": 19.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Acción",
+    "steamAppId": 208650,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "hitman-world-of-assassination",
+    "titulo": "Hitman World of Assassination",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2023,
+    "precioReferencia": 69.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Sigilo",
+    "steamAppId": 1659040,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "kena-bridge-of-spirits",
+    "titulo": "Kena: Bridge of Spirits",
+    "plataformas": [
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2021,
+    "precioReferencia": 39.99,
+    "tipo": "juego",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": 1954200,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "mega-man-legacy-collection",
+    "titulo": "Mega Man Legacy Collection",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2015,
+    "precioReferencia": 14.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Plataformas",
+    "steamAppId": 363440,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "castlevania-dominus-collection",
+    "titulo": "Castlevania Dominus Collection",
+    "plataformas": [
+      "switch",
+      "ps5",
+      "ps4",
+      "xbox-series",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2024,
+    "precioReferencia": 24.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Metroidvania",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  },
+  {
+    "id": "phoenix-wright-ace-attorney-trilogy",
+    "titulo": "Phoenix Wright: Ace Attorney Trilogy",
+    "plataformas": [
+      "switch",
+      "ps4",
+      "xbox-one",
+      "pc"
+    ],
+    "anio": 2019,
+    "precioReferencia": 29.99,
+    "tipo": "coleccion",
+    "formatos": [
+      "digital",
+      "fisico"
+    ],
+    "genero": "Aventura",
+    "steamAppId": null,
+    "terminoBusqueda": null,
+    "metacriticSlug": null,
+    "urlsTienda": {},
+    "activo": true
+  }
+]

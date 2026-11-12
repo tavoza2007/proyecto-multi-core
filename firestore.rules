@@ -1,0 +1,20 @@
+rules_version = '2';
+
+// La web pública solo LEE. El scraper escribe con una cuenta de servicio (Admin SDK),
+// que no pasa por estas reglas, así que nadie más puede modificar datos.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /resultados/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /meta/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /juegos/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}

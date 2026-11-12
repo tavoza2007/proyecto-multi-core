@@ -1,0 +1,15 @@
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+.vercel/
+.netlify/
+*.tmp
+
+# Nunca subir la llave de la cuenta de servicio
+serviceAccount*.json
+*-firebase-adminsdk-*.json
+
+# Resultados de pruebas locales
+salida*.txt

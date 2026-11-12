@@ -1,0 +1,8 @@
+[build]
+  publish = "web"
+  command = ""
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"
