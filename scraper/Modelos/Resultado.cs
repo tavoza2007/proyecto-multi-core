@@ -31,7 +31,7 @@ public sealed class PrecioTienda
     /// <summary>false cuando la tienda falló en esta corrida y se conserva el último precio conocido.</summary>
     [FirestoreProperty("vigente")] public bool Vigente { get; set; } = true;
 
-    /// <summary>Fecha de lanzamiento que reporta la tienda (enriquece el repo). No se guarda.</summary>
+    /// <summary>Fecha de lanzamiento tal como la escribe la tienda ("Sep 17, 2020"). Se normaliza al consolidar. No se guarda.</summary>
     [JsonIgnore] public string? FechaLanzamiento { get; set; }
 
     /// <summary>Metascore que algunas tiendas exponen (Steam). Se usa como respaldo. No se guarda.</summary>
@@ -68,6 +68,9 @@ public sealed class MetacriticInfo
 
     /// <summary>Portada que muestra la página del juego en Metacritic.</summary>
     [FirestoreProperty("imagenUrl")] public string? ImagenUrl { get; set; }
+
+    /// <summary>Fecha de lanzamiento que publica Metacritic (JSON-LD datePublished). Se usa al consolidar; no se guarda aquí.</summary>
+    [JsonIgnore] public string? FechaLanzamiento { get; set; }
 }
 
 /// <summary>Resultado del scraping de un juego (colección "resultados"). Es lo que lee la web.</summary>
@@ -87,6 +90,8 @@ public sealed class ResultadoJuego
     [FirestoreProperty("formatos")] public List<string> Formatos { get; set; } = new();
     [FirestoreProperty("genero")] public string Genero { get; set; } = "";
     [FirestoreProperty("anio")] public int Anio { get; set; }
+
+    /// <summary>Fecha de lanzamiento "yyyy-MM-dd" (la del REPO o la que reportan Metacritic y las tiendas).</summary>
     [FirestoreProperty("fechaLanzamiento")] public string? FechaLanzamiento { get; set; }
     [FirestoreProperty("precioReferencia")] public double PrecioReferencia { get; set; }
 

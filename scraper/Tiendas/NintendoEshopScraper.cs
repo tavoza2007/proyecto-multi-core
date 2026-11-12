@@ -15,7 +15,7 @@ namespace PrecioPixel.Tiendas;
 /// Qué trae la página (verificado en nintendo.com):
 ///   • JSON-LD (schema.org Product) del producto principal: name, sku, offers.price, image.
 ///   • Estado incrustado (__NEXT_DATA__ → initialApolloState) con TODOS los productos que muestra la ficha:
-///       "Product:{"sku":"7100027619"}" → { name, platform.code, prices(...) { regularPrice, finalPrice, discounted } }
+///       "Product:{"sku":"7100027619"}" → { name, platform.code, releaseDate, prices(...) { regularPrice, finalPrice, discounted } }
 ///     Ahí también aparecen la edición de Switch 2, los DLC y los paquetes, por eso se busca el producto por su SKU.
 /// </summary>
 public sealed class NintendoEshopScraper(ClienteHttpResiliente http, BuscadorWeb buscador, Opciones opt) : ITiendaScraper
@@ -53,7 +53,7 @@ public sealed class NintendoEshopScraper(ClienteHttpResiliente http, BuscadorWeb
         return filas;
     }
 
-    private sealed record Producto(string Nombre, double? Final, double? Regular);
+    private sealed record Producto(string Nombre, double? Final, double? Regular, string? Fecha = null);
     private sealed record Pagina(string Url, string? Imagen, Producto Principal, Producto? EdicionSwitch2);
 
     private PrecioTienda? Fila(Juego juego, Pagina pagina, Producto p, string plataforma)
@@ -74,6 +74,7 @@ public sealed class NintendoEshopScraper(ClienteHttpResiliente http, BuscadorWeb
             TituloEncontrado = p.Nombre,
             ImagenUrl = pagina.Imagen,
             Similitud = sim,
+            FechaLanzamiento = p.Fecha, // "2020-09-17T00:00:00.000Z"
         };
     }
 
@@ -123,29 +124,29 @@ public sealed class NintendoEshopScraper(ClienteHttpResiliente http, BuscadorWeb
         // 2) Precio regular / final de ese mismo producto (y la edición de Switch 2) en el estado incrustado
         var productos = ProductosIncrustados(doc);
         var principal = sku is not null && productos.TryGetValue(sku, out var info)
-            ? new Producto(info.nombre ?? nombre, info.final ?? precioLd, info.regular ?? precioLd)
+            ? new Producto(info.nombre ?? nombre, info.final ?? precioLd, info.regular ?? precioLd, info.fecha)
             : new Producto(nombre, precioLd, precioLd);
 
         var edicion2 = productos.Values
             .Where(p => p.plataforma == "NINTENDO_SWITCH_2" && p.nombre is not null && p.sku.StartsWith("7100") &&
                         p.nombre.Contains("2 Edition", StringComparison.OrdinalIgnoreCase) &&
                         !p.nombre.Contains("Upgrade", StringComparison.OrdinalIgnoreCase))
-            .Select(p => new Producto(p.nombre!, p.final, p.regular))
+            .Select(p => new Producto(p.nombre!, p.final, p.regular, p.fecha))
             .FirstOrDefault();
 
         return new Pagina(url, imagen, principal, PrincipalEsSwitch2(productos, sku) ? null : edicion2);
     }
 
-    private static bool PrincipalEsSwitch2(Dictionary<string, (string sku, string? nombre, string? plataforma, double? final, double? regular)> productos, string? sku) =>
+    private static bool PrincipalEsSwitch2(Dictionary<string, (string sku, string? nombre, string? plataforma, double? final, double? regular, string? fecha)> productos, string? sku) =>
         sku is not null && productos.TryGetValue(sku, out var p) && p.plataforma == "NINTENDO_SWITCH_2";
 
     /// <summary>
-    /// Lee de __NEXT_DATA__ los objetos "Product:{"sku":"…"}" con su nombre, plataforma y precios.
+    /// Lee de __NEXT_DATA__ los objetos "Product:{"sku":"…"}" con su nombre, plataforma, precios y fecha de lanzamiento.
     /// Los SKU digitales de juegos empiezan con 7100 (los de 7500 son DLC y los de 7700 paquetes).
     /// </summary>
-    private static Dictionary<string, (string sku, string? nombre, string? plataforma, double? final, double? regular)> ProductosIncrustados(IHtmlDocument doc)
+    private static Dictionary<string, (string sku, string? nombre, string? plataforma, double? final, double? regular, string? fecha)> ProductosIncrustados(IHtmlDocument doc)
     {
-        var salida = new Dictionary<string, (string, string?, string?, double?, double?)>();
+        var salida = new Dictionary<string, (string, string?, string?, double?, double?, string?)>();
         if (Html.NextData(doc) is not { } estado) return salida;
 
         foreach (var o in Html.Objetos(estado))
@@ -168,7 +169,7 @@ public sealed class NintendoEshopScraper(ClienteHttpResiliente http, BuscadorWeb
 
                 var plataforma = producto.TryGetProperty("platform", out var pl) && pl.ValueKind == JsonValueKind.Object
                     ? Html.Cadena(pl, "code") : null;
-                salida[sku] = (sku, Html.Cadena(producto, "name"), plataforma, final, regular);
+                salida[sku] = (sku, Html.Cadena(producto, "name"), plataforma, final, regular, Html.Cadena(producto, "releaseDate"));
             }
         return salida;
     }

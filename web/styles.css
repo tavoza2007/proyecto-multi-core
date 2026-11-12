@@ -389,6 +389,7 @@ a { color: var(--accion); }
 .datos { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin: 0; font-size: .92rem; }
 .datos dt { color: var(--tinta-suave); }
 .datos dd { margin: 0; font-weight: 700; }
+.datos .relativo { display: block; font-weight: 400; font-size: .8rem; color: var(--tinta-suave); }
 
 .mc-plataformas { display: flex; flex-wrap: wrap; gap: 10px; }
 .mc-plataforma { display: flex; align-items: center; gap: 8px; font-size: .9rem; }

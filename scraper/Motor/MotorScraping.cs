@@ -5,6 +5,7 @@ using PrecioPixel.Fuentes;
 using PrecioPixel.Modelos;
 using PrecioPixel.Red;
 using PrecioPixel.Tiendas;
+using PrecioPixel.Util;
 
 namespace PrecioPixel.Motor;
 
@@ -272,7 +273,7 @@ public sealed class MotorScraping
             Metacritic = mc,
             Hltb = hltb.valor ?? (hltb.error is not null ? previo?.Hltb : null),
             Imagenes = ElegirPortadas(filas, mc, hltb.valor ?? previo?.Hltb, previo),
-            FechaLanzamiento = filas.Select(f => f.FechaLanzamiento).FirstOrDefault(f => !string.IsNullOrWhiteSpace(f)) ?? previo?.FechaLanzamiento,
+            FechaLanzamiento = ElegirFechaLanzamiento(juego, filas, mc, previo),
             ActualizadoEn = DateTime.UtcNow,
             Errores = errores,
         };
@@ -303,6 +304,28 @@ public sealed class MotorScraping
 
         r.Estado = filas.Count == 0 ? "sin-datos" : errores.Count > 0 ? "parcial" : "ok";
         return r;
+    }
+
+    /// <summary>
+    /// Fecha de lanzamiento "yyyy-MM-dd": la del REPO si ya la tiene; si no, la que publican Metacritic y las tiendas.
+    /// Un port sale después del original (DOOM: PC en 2016, Switch en 2017), por eso se prefiere la fecha cuyo año
+    /// coincide con el año del repo y, si ninguna coincide, la más antigua.
+    /// </summary>
+    private static string? ElegirFechaLanzamiento(Juego juego, List<PrecioTienda> filas, MetacriticInfo mc, ResultadoJuego? previo)
+    {
+        if (Fechas.Normalizar(juego.FechaLanzamiento) is { } delRepo) return delRepo;
+
+        // Lo que se leyó en esta corrida + la fecha de la corrida anterior (por si hoy falló la tienda que la dio)
+        var candidatas = filas.Select(f => f.FechaLanzamiento)
+            .Prepend(mc.FechaLanzamiento)
+            .Prepend(previo?.FechaLanzamiento)
+            .Select(Fechas.Normalizar)
+            .OfType<string>()
+            .Distinct()
+            .OrderBy(f => f, StringComparer.Ordinal)
+            .ToList();
+
+        return candidatas.FirstOrDefault(f => Fechas.Anio(f) == juego.Anio) ?? candidatas.FirstOrDefault();
     }
 
     /// <summary>

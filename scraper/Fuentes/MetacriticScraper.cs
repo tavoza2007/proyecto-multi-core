@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using AngleSharp.Dom;
 using AngleSharp.Html.Parser;
 using PrecioPixel.Modelos;
 using PrecioPixel.Red;
@@ -11,6 +12,7 @@ namespace PrecioPixel.Fuentes;
 /// Metacritic: obtiene el Metascore del juego PARA CADA CONSOLA asociada en el repo.
 /// Las consultas de las distintas consolas de un mismo juego también se hacen en paralelo.
 ///   https://www.metacritic.com/game/{slug}/critic-reviews/?platform={plataforma}
+/// De la página principal del juego también se toman la portada y la fecha de lanzamiento (JSON-LD datePublished).
 /// </summary>
 public sealed partial class MetacriticScraper(ClienteHttpResiliente http, BuscadorWeb buscador)
 {
@@ -18,9 +20,6 @@ public sealed partial class MetacriticScraper(ClienteHttpResiliente http, Buscad
 
     [GeneratedRegex(@"title=""Metascore (\d{1,3}) out of 100""", RegexOptions.IgnoreCase)]
     private static partial Regex RegexTitulo();
-
-    [GeneratedRegex(@"""criticScoreSummary""\s*:\s*\{[^{}]*?""score""\s*:\s*(\d{1,3})")]
-    private static partial Regex RegexPayload();
 
     public async Task<MetacriticInfo> ObtenerAsync(Juego juego, CancellationToken ct)
     {
@@ -52,7 +51,13 @@ public sealed partial class MetacriticScraper(ClienteHttpResiliente http, Buscad
         var general = await LeerPaginaAsync(urlJuego, ct);
         if (!general.Existe) return null;
 
-        var info = new MetacriticInfo { Url = urlJuego, Fuente = "Metacritic", ImagenUrl = general.Portada };
+        var info = new MetacriticInfo
+        {
+            Url = urlJuego,
+            Fuente = "Metacritic",
+            ImagenUrl = general.Portada,
+            FechaLanzamiento = Fechas.Normalizar(general.Fecha),
+        };
 
         // Una tarea por consola → Task.WhenAll
         var tareas = juego.Plataformas
@@ -79,9 +84,12 @@ public sealed partial class MetacriticScraper(ClienteHttpResiliente http, Buscad
         return info;
     }
 
-    private sealed record Pagina(bool Existe, int? Score, string? Portada);
+    private sealed record Pagina(bool Existe, int? Score, string? Portada, string? Fecha = null);
 
-    /// <summary>Lee de una página de Metacritic el Metascore y la portada del juego. Score null si no existe (404) o aún no tiene.</summary>
+    /// <summary>
+    /// Lee de una página de Metacritic el Metascore, la portada y la fecha de lanzamiento del juego.
+    /// Score null si no existe (404) o aún no tiene.
+    /// </summary>
     private async Task<Pagina> LeerPaginaAsync(string url, CancellationToken ct)
     {
         string html;
@@ -96,9 +104,9 @@ public sealed partial class MetacriticScraper(ClienteHttpResiliente http, Buscad
 
         using var doc = new HtmlParser().ParseDocument(html);
         int? score = null;
-        string? portada = null;
+        string? portada = null, fecha = null;
 
-        // JSON-LD (schema.org VideoGame): aggregateRating.ratingValue e image (la portada)
+        // JSON-LD (schema.org VideoGame): aggregateRating.ratingValue, image (la portada) y datePublished ("2020-09-17")
         foreach (var s in doc.QuerySelectorAll("script[type='application/ld+json']"))
         {
             try
@@ -106,6 +114,7 @@ public sealed partial class MetacriticScraper(ClienteHttpResiliente http, Buscad
                 using var j = JsonDocument.Parse(s.TextContent);
                 var raiz = j.RootElement;
                 if (raiz.ValueKind != JsonValueKind.Object) continue;
+                fecha ??= Html.Cadena(raiz, "datePublished", "releaseDate");
                 if (score is null && raiz.TryGetProperty("aggregateRating", out var ar) && ar.TryGetProperty("ratingValue", out var rv))
                     score = rv.ValueKind == JsonValueKind.Number ? rv.GetInt32() : int.Parse(rv.GetString()!);
                 if (portada is null && raiz.TryGetProperty("image", out var img))
@@ -117,11 +126,18 @@ public sealed partial class MetacriticScraper(ClienteHttpResiliente http, Buscad
             catch (Exception e) when (e is JsonException or FormatException) { }
         }
 
-        // Respaldos del score: atributo title="Metascore 97 out of 100" y estado incrustado de la página
-        if (score is null && RegexTitulo().Match(html) is { Success: true } m1) score = int.Parse(m1.Groups[1].Value);
-        if (score is null && RegexPayload().Match(html) is { Success: true } m2) score = int.Parse(m2.Groups[1].Value);
+        // El Metascore de la consola: <div class="c-siteReviewScore" title="Metascore 90 out of 100">.
+        // Cada reseña individual usa el MISMO elemento, dentro de una "review-card": esos se ignoran,
+        // porque si la consola aún no tiene Metascore, el primero sería la nota de un solo crítico (a veces 100).
+        if (score is null)
+        {
+            var resumen = doc.QuerySelectorAll("[title^='Metascore']")
+                .FirstOrDefault(e => e.Closest("[data-testid*='review-card'], [class*='review-card']") is null);
+            if (resumen is not null && RegexTitulo().Match(resumen.OuterHtml) is { Success: true } m1)
+                score = int.Parse(m1.Groups[1].Value);
+        }
 
         portada ??= Html.Meta(doc, "og:image");
-        return new Pagina(true, score, portada);
+        return new Pagina(true, score, portada, fecha);
     }
 }

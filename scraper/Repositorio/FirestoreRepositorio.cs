@@ -54,12 +54,66 @@ public sealed class FirestoreRepositorio : IRepositorio
 
     public async Task GuardarJuegosAsync(IEnumerable<Juego> juegos, CancellationToken ct)
     {
+        var col = _db.Collection(_opt.ColeccionJuegos);
+        var existentes = (await col.Select(FieldPath.DocumentId).GetSnapshotAsync(ct)).Documents
+            .Select(d => d.Id)
+            .ToHashSet();
+
         foreach (var lote in juegos.Chunk(LoteMaximo))
         {
             var batch = _db.StartBatch();
             foreach (var j in lote)
-                batch.Set(_db.Collection(_opt.ColeccionJuegos).Document(j.Id), j, SetOptions.MergeAll);
+            {
+                var doc = col.Document(j.Id);
+                // Juego nuevo → documento completo. Juego que ya existe → solo los campos que trae el archivo,
+                // para no borrar lo que el scraper completó (fecha de lanzamiento, página de HowLongToBeat…).
+                if (existentes.Contains(j.Id)) batch.Update(doc, CamposConValor(j));
+                else batch.Set(doc, j);
+            }
             await batch.CommitAsync(ct);
+        }
+    }
+
+    /// <summary>Campos con valor de un juego. Las URLs van una por una (urlsTienda.hltb…) para no reemplazar el mapa completo.</summary>
+    private static Dictionary<FieldPath, object> CamposConValor(Juego j)
+    {
+        var campos = new Dictionary<FieldPath, object>
+        {
+            [new FieldPath("titulo")] = j.Titulo,
+            [new FieldPath("plataformas")] = j.Plataformas,
+            [new FieldPath("anio")] = j.Anio,
+            [new FieldPath("precioReferencia")] = j.PrecioReferencia,
+            [new FieldPath("tipo")] = j.Tipo,
+            [new FieldPath("formatos")] = j.Formatos,
+            [new FieldPath("genero")] = j.Genero,
+            [new FieldPath("activo")] = j.Activo,
+        };
+        if (j.SteamAppId is { } steam) campos[new FieldPath("steamAppId")] = steam;
+        if (j.TerminoBusqueda is { Length: > 0 } termino) campos[new FieldPath("terminoBusqueda")] = termino;
+        if (j.MetacriticSlug is { Length: > 0 } slug) campos[new FieldPath("metacriticSlug")] = slug;
+        if (j.FechaLanzamiento is { Length: > 0 } fecha) campos[new FieldPath("fechaLanzamiento")] = fecha;
+        foreach (var (clave, url) in j.UrlsTienda)
+            if (!string.IsNullOrWhiteSpace(url)) campos[new FieldPath("urlsTienda", clave)] = url;
+        return campos;
+    }
+
+    public async Task ActualizarJuegosAsync(IReadOnlyList<CambioJuego> cambios, CancellationToken ct)
+    {
+        var col = _db.Collection(_opt.ColeccionJuegos);
+        foreach (var lote in cambios.Chunk(LoteMaximo))
+        {
+            var batch = _db.StartBatch();
+            var escrituras = 0;
+            foreach (var c in lote)
+            {
+                var campos = new Dictionary<FieldPath, object>();
+                if (c.FechaLanzamiento is { Length: > 0 } fecha) campos[new FieldPath("fechaLanzamiento")] = fecha;
+                if (c.UrlHltb is { Length: > 0 } url) campos[new FieldPath("urlsTienda", "hltb")] = url;
+                if (campos.Count == 0) continue;
+                batch.Update(col.Document(c.Id), campos); // Update: solo esos campos, el resto del juego queda igual
+                escrituras++;
+            }
+            if (escrituras > 0) await batch.CommitAsync(ct);
         }
     }
 

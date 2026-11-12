@@ -110,6 +110,47 @@ public static partial class Texto
     private static bool EsNumeroDeEntrega(string token) =>
         token.All(char.IsDigit) && !(token.Length == 4 && int.Parse(token) is >= 1970 and <= 2039);
 
+    [GeneratedRegex(@"\s*(?:[-–—:]\s*)?(?:the\s+)?(?:(?:complete|definitive|special|enhanced|game of the year|goty)\s+edition|director[’']?s\s+cut|remastered)\s*$", RegexOptions.IgnoreCase)]
+    private static partial Regex SufijoReedicion();
+
+    [GeneratedRegex(@"^(?:Marvel|Sid Meier|Tom Clancy)[’']s\s+", RegexOptions.IgnoreCase)]
+    private static partial Regex PrefijoMarca();
+
+    /// <summary>
+    /// Quita del final del título las palabras de una reedición que conserva el mismo juego:
+    ///   "Ghost of Tsushima Director's Cut" → "Ghost of Tsushima" · "Dark Souls: Remastered" → "Dark Souls"
+    ///   "The Witcher 3: Wild Hunt - Complete Edition" → "The Witcher 3: Wild Hunt"
+    /// No quita "Deluxe", "Royal", "Golden" ni "Legendary Edition": esas versiones cambian el contenido y tienen su propia ficha.
+    /// </summary>
+    public static string SinReedicion(string titulo) => SufijoReedicion().Replace(titulo, "").Trim();
+
+    /// <summary>"Marvel's Spider-Man 2" → "Spider-Man 2" · "Sid Meier's Civilization VII" → "Civilization VII"</summary>
+    public static string SinMarca(string titulo) => PrefijoMarca().Replace(titulo, "").Trim();
+
+    /// <summary>
+    /// Nombres con los que otros sitios pueden llamar al mismo juego del repo, del más fiel al más corto:
+    /// el título tal cual · sin la reedición ("Director's Cut", "Remastered"…) · sin la marca ("Marvel's", "Sid Meier's").
+    /// </summary>
+    public static IEnumerable<string> NombresDelMismoJuego(string titulo)
+    {
+        var sinReedicion = SinReedicion(titulo);
+        return new[] { titulo.Trim(), sinReedicion, SinMarca(titulo), SinMarca(sinReedicion) }
+            .Where(t => t.Length > 0)
+            .Distinct();
+    }
+
+    /// <summary>
+    /// Similitud entre el título del repo y el nombre de una ficha externa (Wikipedia, Wikidata, HowLongToBeat)
+    /// aceptando esos otros nombres: "Ghost of Tsushima Director's Cut" ↔ "Ghost of Tsushima",
+    /// "Sid Meier's Civilization VII" ↔ "Civilization VII".
+    /// </summary>
+    public static double SimilitudMismoJuego(string tituloRepo, string? encontrado)
+    {
+        if (string.IsNullOrWhiteSpace(encontrado)) return 0;
+        string nombre = encontrado;
+        return NombresDelMismoJuego(tituloRepo).Select(t => Similitud(t, nombre)).DefaultIfEmpty(0).Max();
+    }
+
     [GeneratedRegex(@"\b(CRC|MXN|COP|CLP|PEN|ARS|BRL|EUR|GBP|CAD|AUD|JPY|CNY|KRW|INR)\b|₡|€|£|¥|₩|R\$|CA\$|MX\$|A\$|COL\$", RegexOptions.IgnoreCase)]
     private static partial Regex OtraMoneda();
 

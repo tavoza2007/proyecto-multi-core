@@ -6,9 +6,18 @@ rem  local. Todo lo que muestra queda guardado en salida.txt.
 rem ===============================================================
 chcp 65001 >nul
 cd /d "%~dp0scraper"
-echo Compilando y ejecutando... (tarda unos minutos, no cierres esta ventana)
+echo Compilando... (no cierres esta ventana)
 > "%~dp0salida.txt" echo ==== COMPILACION ====
 dotnet build >> "%~dp0salida.txt" 2>&1
+if errorlevel 1 (
+  >> "%~dp0salida.txt" echo ==== ERROR DE COMPILACION ====
+  echo.
+  echo  *** NO COMPILO. No subas nada a GitHub todavia: el detalle quedo en salida.txt ***
+  echo.
+  pause
+  exit /b 1
+)
+echo Compilo bien. Probando 15 juegos... (tarda uno o dos minutos)
 >> "%~dp0salida.txt" echo ==== SCRAPING ====
 dotnet run --no-build -- scrape --local --limite 15 --verbose --sin-previos >> "%~dp0salida.txt" 2>&1
 >> "%~dp0salida.txt" echo ==== LISTO ====

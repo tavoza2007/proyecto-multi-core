@@ -57,6 +57,20 @@ public sealed class JsonRepositorio(string archivoJuegos, string archivoResultad
 
     public Task GuardarResultadosAsync(IReadOnlyList<ResultadoJuego> resultados, ResumenEjecucion resumen, CancellationToken ct) =>
         ExportWeb.EscribirAsync(archivoResultados, resultados, resumen, demo: false, ct);
+
+    public async Task ActualizarJuegosAsync(IReadOnlyList<CambioJuego> cambios, CancellationToken ct)
+    {
+        var porId = (await ObtenerJuegosAsync(false, ct)).ToDictionary(j => j.Id);
+        var tocados = new List<Juego>();
+        foreach (var c in cambios)
+        {
+            if (!porId.TryGetValue(c.Id, out var juego)) continue;
+            if (c.FechaLanzamiento is { Length: > 0 } fecha) juego.FechaLanzamiento = fecha;
+            if (c.UrlHltb is { Length: > 0 } url) juego.UrlsTienda["hltb"] = url;
+            tocados.Add(juego);
+        }
+        if (tocados.Count > 0) await GuardarJuegosAsync(tocados, ct);
+    }
 }
 
 /// <summary>Formato del archivo deals.json que puede leer la web (modo demo / respaldo).</summary>

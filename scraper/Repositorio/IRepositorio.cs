@@ -14,7 +14,16 @@ public interface IRepositorio
     Task GuardarJuegosAsync(IEnumerable<Juego> juegos, CancellationToken ct);
     Task DesactivarJuegoAsync(string id, CancellationToken ct);
     Task GuardarResultadosAsync(IReadOnlyList<ResultadoJuego> resultados, ResumenEjecucion resumen, CancellationToken ct);
+
+    /// <summary>
+    /// Completa juegos que ya están en el REPO con lo que aprendió una corrida (fecha de lanzamiento, página de
+    /// HowLongToBeat) sin tocar el resto de sus campos.
+    /// </summary>
+    Task ActualizarJuegosAsync(IReadOnlyList<CambioJuego> cambios, CancellationToken ct);
 }
+
+/// <summary>Datos nuevos de un juego del REPO. null = ese campo no cambia.</summary>
+public sealed record CambioJuego(string Id, string? FechaLanzamiento, string? UrlHltb);
 
 public static class Json
 {

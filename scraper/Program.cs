@@ -82,7 +82,7 @@ static async Task<int> ScrapeAsync(IRepositorio repo, Opciones opt, Dictionary<s
     if (juegos.Count == 0) { Log.Error("El repo no tiene juegos activos. Usa el comando seed o add."); return 1; }
 
     using var http = new ClienteHttpResiliente(opt.Red, opt.Paralelismo.MaxPeticionesPorHost);
-    var (motor, urls) = CrearMotor(http, opt);
+    var (motor, urls, hltb) = CrearMotor(http, opt);
 
     // 1) Validar conexión ANTES de tocar nada
     Log.Titulo("Verificando conectividad con los sitios…");
@@ -114,6 +114,9 @@ static async Task<int> ScrapeAsync(IRepositorio repo, Opciones opt, Dictionary<s
     await repo.GuardarResultadosAsync(resultados, resumen, ct);
     Log.Ok($"Resultados guardados en {repo.Descripcion}");
 
+    // 4) El REPO se completa solo con lo que aprendió esta corrida (fechas de lanzamiento, páginas de HowLongToBeat)
+    await CompletarRepoAsync(repo, juegos, resultados, hltb, ct);
+
     if (!string.IsNullOrWhiteSpace(opt.Salida.ExportarJson) && repo is not JsonRepositorio)
     {
         var ruta = Rutas.Resolver(opt.Salida.ExportarJson);
@@ -130,7 +133,7 @@ static async Task<int> BenchmarkAsync(IRepositorio repo, Opciones opt, Dictionar
     var vacio = new Dictionary<string, ResultadoJuego>();
 
     using var http = new ClienteHttpResiliente(opt.Red, opt.Paralelismo.MaxPeticionesPorHost);
-    var (motor, _) = CrearMotor(http, opt);
+    var (motor, _, _) = CrearMotor(http, opt);
 
     Log.Titulo($"BENCHMARK con {juegos.Count} juegos · {Environment.ProcessorCount} núcleos lógicos");
     Log.Info("Calentamiento (1 juego) para abrir conexiones y descubrir endpoints…");
@@ -246,7 +249,7 @@ static IRepositorio CrearRepositorio(bool local, Opciones opt)
     return new FirestoreRepositorio(opt.Firebase);
 }
 
-static (MotorScraping motor, List<string> urls) CrearMotor(ClienteHttpResiliente http, Opciones opt)
+static (MotorScraping motor, List<string> urls, HowLongToBeatScraper? hltb) CrearMotor(ClienteHttpResiliente http, Opciones opt)
 {
     var buscador = new BuscadorWeb(http);
     var tiendas = new List<ITiendaScraper>();
@@ -257,14 +260,47 @@ static (MotorScraping motor, List<string> urls) CrearMotor(ClienteHttpResiliente
     if (opt.Tiendas.Amazon.Habilitada) tiendas.Add(new AmazonScraper(http, opt));
 
     var mc = opt.Fuentes.Metacritic.Habilitada ? new MetacriticScraper(http, buscador) : null;
-    var hltb = opt.Fuentes.HowLongToBeat.Habilitada ? new HowLongToBeatScraper(http, buscador, opt) : null;
+    var hltb = opt.Fuentes.HowLongToBeat.Habilitada ? new HowLongToBeatScraper(http, buscador, new WikidataScraper(http), opt) : null;
 
     var urls = tiendas.Select(t => t.UrlBase).ToList();
     if (mc is not null) urls.Add(mc.UrlBase);
     if (hltb is not null) urls.Add(hltb.UrlBase);
     urls.Add("https://html.duckduckgo.com/");
 
-    return (new MotorScraping(tiendas, mc, hltb, http, opt), urls);
+    return (new MotorScraping(tiendas, mc, hltb, http, opt), urls, hltb);
+}
+
+// Completa el REPO con lo que aprendió la corrida, solo en los campos vacíos:
+//   • fechaLanzamiento, cuando la fecha encontrada coincide con el año del juego en el repo;
+//   • urlsTienda.hltb, la página de HowLongToBeat encontrada en Wikidata (o con el buscador y confirmada).
+// Las siguientes corridas van directo a esas páginas. Si esto falla no pasa nada: los resultados ya se guardaron.
+static async Task CompletarRepoAsync(IRepositorio repo, List<Juego> juegos, List<ResultadoJuego> resultados,
+                                     HowLongToBeatScraper? hltb, CancellationToken ct)
+{
+    var resultadoDe = resultados.ToDictionary(x => x.Id);
+    var cambios = new List<CambioJuego>();
+    foreach (var juego in juegos)
+    {
+        string? fecha = null, urlHltb = null;
+        if (string.IsNullOrWhiteSpace(juego.FechaLanzamiento) && resultadoDe.TryGetValue(juego.Id, out var res) &&
+            Fechas.Normalizar(res.FechaLanzamiento) is { } encontrada && Fechas.Anio(encontrada) == juego.Anio)
+            fecha = encontrada;
+        if (hltb is not null && juego.Url("hltb") is null && hltb.UrlsDescubiertas.TryGetValue(juego.Id, out var url))
+            urlHltb = url;
+        if (fecha is not null || urlHltb is not null) cambios.Add(new CambioJuego(juego.Id, fecha, urlHltb));
+    }
+    if (cambios.Count == 0) return;
+
+    try
+    {
+        await repo.ActualizarJuegosAsync(cambios, ct);
+        Log.Ok($"REPO completado: {cambios.Count(c => c.FechaLanzamiento is not null)} fechas de lanzamiento y " +
+               $"{cambios.Count(c => c.UrlHltb is not null)} páginas de HowLongToBeat nuevas");
+    }
+    catch (Exception ex) when (ex is not OperationCanceledException)
+    {
+        Log.Advertencia($"No se pudo completar el REPO (los resultados sí quedaron guardados): {ex.Message}");
+    }
 }
 
 static void ImprimirResumen(ResumenEjecucion r)

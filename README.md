@@ -9,20 +9,20 @@ Implementa el *Modelo de referencia – Programación Multicore v1.7*:
 | Requisito del modelo | Dónde está |
 |---|---|
 | Repo dinámico de ≥ 200 juegos, no "quemado" | Colección `juegos` en Firestore (260 juegos en `seed/juegos.json`), comandos `seed`, `add`, `remove`, `list` |
-| Parámetros del repo: consolas, fechas, precio de referencia, otros | `plataformas`, `anio` (+ fecha exacta tomada de la tienda), `precioReferencia`, `tipo`, `formatos`, `genero`, `steamAppId`, `terminoBusqueda`, `metacriticSlug`, `activo` |
+| Parámetros del repo: consolas, fechas, precio de referencia, otros | `plataformas`, `anio`, `fechaLanzamiento` (fecha completa que el scraper toma de Metacritic, Steam o el eShop y guarda en el repo), `precioReferencia`, `tipo`, `formatos`, `genero`, `steamAppId`, `terminoBusqueda`, `metacriticSlug`, `urlsTienda`, `activo` |
 | **1er nivel de paralelismo**: scraping para cada juego | `Motor/MotorScraping.cs` → `Parallel.ForEachAsync` |
 | **2do nivel**: consulta paralela de los sitios (precios ‖ Metacritic ‖ HLTB) | `ProcesarJuegoAsync` → `Task.WhenAll` |
 | **3er nivel**: verificar precios en las distintas tiendas | `ObtenerPreciosAsync` → `Task.WhenAll` sobre Steam, GOG, eShop, PS Store, Amazon |
 | Precio en al menos dos sitios principales | Cada juego consulta ≥ 2 tiendas según su plataforma (ver tabla abajo) |
 | Indicador de oferta y cómo saberlo | `Motor/DetectorOfertas.cs` (dos criterios, ver abajo) |
 | Score de Metacritic por consola del repo | `Fuentes/MetacriticScraper.cs` (una consulta por consola, en paralelo) |
-| Tiempo de How Long To Beat | `Fuentes/HowLongToBeatScraper.cs` |
+| Tiempo de How Long To Beat | `Fuentes/HowLongToBeatScraper.cs`; la página de cada juego se encuentra con `Fuentes/WikidataScraper.cs` y queda guardada en el repo (`urlsTienda.hltb`) |
 | Validar problemas de conexión y garantizar datos actualizados | `Red/ClienteHttpResiliente.cs` + reglas de "no publicar vacío" (ver abajo) |
 | Web pública (no local), actualización recurrente | `web/` en Vercel/Netlify + GitHub Actions cada 6 h + `onSnapshot` en vivo |
 | Filtros: tipo, plataforma, formato, tienda | Barra lateral de la web (con conteos) |
 | Orden: nombre, precio, % descuento, Metacritic | Selector "Ordenar por" |
 | Tarjeta: imagen, título, mejor precio, regular tachado, %, consolas, Metacritic | `tarjeta()` en `web/app.js` |
-| Detalle: nombre, imagen, precios ordenados con link, precio sugerido, score, HLTB completo | Diálogo de detalle (`htmlDetalle()`), con enlace directo `#juego/slug` |
+| Detalle: nombre, imagen, precios ordenados con link, precio sugerido, score, HLTB completo, fecha de lanzamiento, fecha y hora de la última actualización | Diálogo de detalle (`htmlDetalle()`), con enlace directo `#juego/slug` |
 
 ---
 
@@ -51,13 +51,25 @@ Implementa el *Modelo de referencia – Programación Multicore v1.7*:
 |---|---|---|---|
 | Steam | PC | `store.steampowered.com/search/?term=…` y `/app/{id}/` | filas `a.search_result_row`; en la ficha `.discount_final_price`, `.discount_original_price`, `.game_purchase_price`, Metascore, fecha, imagen |
 | GOG | PC | `gog.com/en/game/{slug}` | precio final, precio base e imagen de la ficha (GOG cobra precios regionales según el país de la conexión) |
-| Nintendo eShop | Switch, Switch 2 | `nintendo.com/us/store/products/{slug}-switch/` (o `-switch-2/`) | SKU del juego en el JSON-LD y, con ese SKU, su precio regular y final en el estado incrustado de la página; de la misma ficha sale la Nintendo Switch 2 Edition |
+| Nintendo eShop | Switch, Switch 2 | `nintendo.com/us/store/products/{slug}-switch/` (o `-switch-2/`) | SKU del juego en el JSON-LD y, con ese SKU, su precio regular y final y su fecha de lanzamiento (`releaseDate`) en el estado incrustado de la página; de la misma ficha sale la Nintendo Switch 2 Edition |
 | PlayStation Store | PS4, PS5 | `playstation.com/en-us/games/{slug}/` (de ahí sale el `conceptId`) y luego `store.playstation.com/en-us/concept/{id}` | nombre, plataformas y ofertas de la caja de compra (atributos `data-qa`), precio tachado, imagen del JSON-LD |
 | Amazon | consolas (físico) | `amazon.com/s?k=…&i=videogames` | resultados `s-search-result`: título, `.a-price`, precio tachado, imagen |
-| Metacritic | por consola | `metacritic.com/game/{slug}/critic-reviews/?platform=…` | Metascore de cada consola del repo |
+| Metacritic | por consola | `metacritic.com/game/{slug}/` y `…/critic-reviews/?platform=…` | Metascore de cada consola del repo; de la página principal, portada y fecha de lanzamiento (JSON-LD `datePublished`) |
 | HowLongToBeat | — | `howlongtobeat.com/game/{id}` | historia principal, principal + extras, completista, todos los estilos |
+| Wikipedia + Wikidata | — | `en.wikipedia.org/wiki/Special:Search?search={título}&go=Go` y `wikidata.org/wiki/{Q…}` | solo para encontrar la página de HowLongToBeat de cada juego (ver abajo) |
 
-Cuando la dirección de una página no se puede deducir del título (HowLongToBeat usa números, o un slug no coincide), se hace scraping de la página de resultados de un buscador (versión HTML de DuckDuckGo, o Bing de respaldo) y se abre el primer resultado del sitio. También se puede fijar la URL exacta en el repo con el campo `urlsTienda` (claves `steam`, `gog`, `nintendo`, `nintendo-switch2`, `playstation`, `metacritic`, `hltb`).
+**¿Cómo se encuentra la página de HowLongToBeat?** HLTB identifica los juegos con un número (`/game/62941` es Hades), así que no se puede deducir del título. El scraper abre el artículo del juego en Wikipedia (prueba "Hades (2020 video game)", "Hades (video game)", "Hades"…); el menú lateral del artículo enlaza su ficha de Wikidata (`Q59756366`), y esa ficha enlaza la página del juego en HowLongToBeat. Solo se acepta si el nombre de la ficha coincide con el título del repo (así "Persona 5 Royal" no toma la de "Persona 5"). La dirección encontrada se guarda en el repo (`urlsTienda.hltb`) y las siguientes corridas van directo.
+
+Si aun así no se encuentra, se hace scraping de la página de resultados de un buscador (Bing o la versión HTML de DuckDuckGo) y se abre el primer resultado del sitio. También se puede fijar la URL exacta en el repo con el campo `urlsTienda` (claves `steam`, `gog`, `nintendo`, `nintendo-switch2`, `playstation`, `metacritic`, `hltb`).
+
+### El repo se completa solo
+
+Al terminar cada corrida, el scraper escribe en el repo (colección `juegos`) lo que aprendió, **solo en los campos vacíos**:
+
+- `fechaLanzamiento` ("2020-09-17"): la fecha que publican Metacritic, Steam o el eShop. Un port sale después del original, por eso se elige la fecha cuyo año coincide con el `anio` del repo.
+- `urlsTienda.hltb`: la página de HowLongToBeat encontrada en Wikidata.
+
+Volver a subir `seed/juegos.json` (`seed` o `subir-juegos.bat`) no borra esos datos: a los juegos que ya existen solo se les actualizan los campos que trae el archivo.
 
 Cada juego se consulta en al menos dos sitios: PC → Steam + GOG; Switch → eShop + Amazon; PlayStation → PS Store + Amazon.
 
@@ -84,7 +96,7 @@ Además se guarda el **mínimo histórico** entre corridas; la tarjeta muestra "
 - **Límite de peticiones simultáneas por sitio** (4) con `SemaphoreSlim`, para no ser bloqueados.
 - Si una tienda falla para un juego, se conserva su **último precio conocido marcado como "no vigente"** (la web lo muestra como "Precio sin confirmar" con su antigüedad). Lo mismo con Metacritic y HLTB.
 - Si **ningún** juego obtuvo precios, no se sobrescribe nada.
-- Cada resultado guarda `actualizadoEn`, `estado` (ok / parcial / sin-datos) y `errores`; `meta/estado` guarda el resumen de la corrida que la web muestra como "Actualizado hace X".
+- Cada resultado guarda `actualizadoEn`, `estado` (ok / parcial / sin-datos) y `errores`. El detalle de cada juego muestra la **fecha y hora exactas de su última actualización** (en la hora local de quien visita), y la barra superior la de la última corrida (`meta/estado`).
 
 ---
 
@@ -178,7 +190,7 @@ scraper/                C# .NET 8
   Program.cs            comandos (scrape, benchmark, seed, add, remove, list)
   Motor/                MotorScraping (3 niveles) y DetectorOfertas
   Tiendas/              Steam, GOG, Nintendo eShop, PlayStation Store, Amazon
-  Fuentes/              Metacritic, HowLongToBeat
+  Fuentes/              Metacritic, HowLongToBeat y Wikidata (encuentra la página de HLTB)
   Red/                  cliente HTTP resiliente y buscador web (para encontrar páginas)
   Repositorio/          Firestore y JSON local
   Modelos/              Juego, ResultadoJuego, PrecioTienda…
@@ -197,6 +209,7 @@ Los sitios cambian su HTML sin aviso. El código está hecho para tolerarlo (var
 - **Amazon** suele pedir CAPTCHA a servidores de nube; se detecta y se conserva el último precio. Se puede apagar en `appsettings.json`.
 - **Buscadores**: Bing y DuckDuckGo pueden pedir verificación a las búsquedas automáticas. El programa lo detecta, no la resuelve y sigue sin ellos. Para los juegos que no encuentre, fija la URL en `urlsTienda`.
 - **Nintendo eShop**: si un juego tiene una dirección distinta al título (ediciones, nombres largos), pon su URL en `urlsTienda.nintendo`.
-- **HowLongToBeat** bloquea algunas conexiones (error 403 "IFW", incluso abriéndolo en un navegador normal). Si te pasa, los tiempos quedan vacíos en esa corrida; desde GitHub Actions (servidores en EE. UU.) puede funcionar, o fija la URL del juego en `urlsTienda.hltb`.
+- **HowLongToBeat** bloquea algunas conexiones (error 403 "IFW", incluso abriéndolo en un navegador normal). Si te pasa, los tiempos quedan vacíos en esa corrida, pero la dirección encontrada en Wikidata igual se guarda en el repo; desde GitHub Actions (servidores en EE. UU.) sí carga.
+- **Wikidata** no tiene la página de HLTB de algunos juegos muy nuevos o de ediciones especiales ("Mario Kart 8 Deluxe" redirige a "Mario Kart 8" en Wikipedia). Para esos, fija la URL en `urlsTienda.hltb`.
 - Si una corrida anterior dejó datos malos, `dotnet run -- scrape --sin-previos` empieza de cero (no conserva precios viejos ni el mínimo histórico).
 - Corre `dotnet run -- scrape --limite 5 --verbose` para ver el detalle de cada falla.

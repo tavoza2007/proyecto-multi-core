@@ -54,6 +54,24 @@ function haceCuanto(d) {
   return rtf.format(Math.round(seg / 86400), "day");
 }
 
+// Fecha y hora explícitas, en la zona horaria de quien visita la página
+const FMT_FECHA_HORA = new Intl.DateTimeFormat("es-CR", {
+  day: "numeric", month: "long", year: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short",
+});
+const FMT_FECHA_HORA_CORTA = new Intl.DateTimeFormat("es-CR", { day: "numeric", month: "short", hour: "numeric", minute: "2-digit" });
+// Las fechas de lanzamiento son días del calendario ("2020-09-17"): se formatean en UTC para que no cambien de día
+const FMT_DIA = new Intl.DateTimeFormat("es-CR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+
+const fechaHora = (d) => (d ? FMT_FECHA_HORA.format(d) : "—");
+const fechaHoraCorta = (d) => (d ? FMT_FECHA_HORA_CORTA.format(d) : "—");
+
+/** "2020-09-17" → "17 de septiembre de 2020". Si aún no hay fecha completa se muestra el año del repo. */
+function lanzamiento(j) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(j.fechaLanzamiento ?? "");
+  if (m) return FMT_DIA.format(new Date(Date.UTC(+m[1], +m[2] - 1, +m[3])));
+  return j.fechaLanzamiento || (j.anio ? String(j.anio) : "—");
+}
+
 function claseMc(score) {
   if (score == null) return "mc--nd";
   return score >= 75 ? "mc--alto" : score >= 50 ? "mc--medio" : "mc--bajo";
@@ -239,9 +257,9 @@ function pintarEstado() {
   $("#aviso-demo").hidden = !estado.demo;
   if (estado.modo === "error") return;
   const fin = fecha(estado.meta?.fin);
-  const cuando = fin ? `Actualizado ${haceCuanto(fin)}` : "Sin fecha de actualización";
+  const cuando = fin ? `Actualizado el ${fechaHoraCorta(fin)}` : "Sin fecha de actualización";
   $("#estado-texto").textContent = estado.modo === "vivo" ? `En vivo · ${cuando}` : cuando;
-  if (fin) caja.title = fin.toLocaleString("es");
+  if (fin) caja.title = `Última revisión de precios: ${fechaHora(fin)} (${haceCuanto(fin)})`;
 }
 
 function pintarEsqueleto() {
@@ -393,7 +411,7 @@ function htmlDetalle(j) {
   const filas = j.precios.map((p) => {
     const regular = p.motivoOferta === "referencia" ? j.precioReferencia : p.precioRegular;
     return `<tr class="${p === mejor ? "mejor-fila" : ""}">
-      <td>${esc(p.tienda)}${p.vigente ? "" : `<span class="no-vigente">Último precio conocido · ${esc(haceCuanto(p.consultadoEn))}</span>`}</td>
+      <td>${esc(p.tienda)}${p.vigente ? "" : `<span class="no-vigente" title="${esc(fechaHora(p.consultadoEn))}">Último precio conocido · ${esc(fechaHoraCorta(p.consultadoEn))}</span>`}</td>
       <td class="col-plat">${esc(PLATAFORMAS[p.plataforma] ?? p.plataforma)}</td>
       <td class="col-formato">${esc(FORMATOS[p.formato] ?? p.formato)}</td>
       <td class="num">${dinero(p.precioActual)}</td>
@@ -419,10 +437,12 @@ function htmlDetalle(j) {
         <dt>Precio sugerido</dt><dd>${j.precioReferencia ? dinero(j.precioReferencia) : "—"}</dd>
         <dt>Mejor precio</dt><dd>${mejor ? `${dinero(mejor.precioActual)} en ${esc(mejor.tienda)}` : "—"}</dd>
         <dt>Mínimo histórico</dt><dd>${j.minimoHistorico != null ? `${dinero(j.minimoHistorico)}${j.fechaMinimoHistorico ? ` <small>(${j.fechaMinimoHistorico.toLocaleDateString("es")})</small>` : ""}` : "—"}</dd>
-        <dt>Lanzamiento</dt><dd>${esc(j.fechaLanzamiento ?? j.anio ?? "—")}</dd>
+        <dt>Lanzamiento</dt><dd>${esc(lanzamiento(j))}</dd>
         <dt>Género</dt><dd>${esc(j.genero || "—")}</dd>
         <dt>Tipo</dt><dd>${esc(TIPOS[j.tipo] ?? j.tipo)}</dd>
-        <dt>Revisado</dt><dd>${esc(haceCuanto(j.actualizadoEn) || "—")}</dd>
+        <dt>Última actualización</dt><dd>${j.actualizadoEn
+          ? `<time datetime="${esc(j.actualizadoEn.toISOString())}">${esc(fechaHora(j.actualizadoEn))}</time><small class="relativo">${esc(haceCuanto(j.actualizadoEn))}</small>`
+          : "—"}</dd>
       </dl>
     </aside>
     <section class="detalle__principal">

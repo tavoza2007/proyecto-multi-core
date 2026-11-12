@@ -20,6 +20,12 @@ public sealed class Juego
 
     [FirestoreProperty("anio")] public int Anio { get; set; }
 
+    /// <summary>
+    /// Fecha de lanzamiento "yyyy-MM-dd". No hace falta escribirla a mano: el scraper la completa la primera vez
+    /// que la encuentra en Metacritic, Steam o el eShop (cuando coincide con el año del juego).
+    /// </summary>
+    [FirestoreProperty("fechaLanzamiento")] public string? FechaLanzamiento { get; set; }
+
     /// <summary>Precio de referencia / sugerido (MSRP) en USD definido por el equipo.</summary>
     [FirestoreProperty("precioReferencia")] public double PrecioReferencia { get; set; }
 
@@ -43,6 +49,7 @@ public sealed class Juego
     /// <summary>
     /// Opcional: URL exacta de la página del juego en un sitio, cuando la búsqueda no la encuentra bien.
     /// Claves: steam, gog, nintendo, nintendo-switch2, playstation, metacritic, hltb.
+    /// La de HowLongToBeat (hltb) la completa el scraper solo cuando la encuentra en Wikidata.
     /// </summary>
     [FirestoreProperty("urlsTienda")] public Dictionary<string, string> UrlsTienda { get; set; } = new();
 
