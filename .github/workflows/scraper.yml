@@ -1,0 +1,59 @@
+# Ejecuta el scraper de forma RECURRENTE y guarda los resultados en Firestore.
+# La web (Vercel/Netlify) escucha Firestore en vivo, así que se actualiza sola.
+#
+# Secrets necesarios (Settings → Secrets and variables → Actions):
+#   FIREBASE_PROJECT_ID        id del proyecto de Firebase
+#   FIREBASE_SERVICE_ACCOUNT   contenido COMPLETO del .json de la cuenta de servicio
+#
+# Variable opcional:
+#   PUBLICAR_JSON = true  → además hace commit de web/data/deals.json (respaldo y modo sin Firebase en la web)
+
+name: Scraper PrecioPixel
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # cada 6 horas (UTC). Cambia aquí la frecuencia que defina el equipo.
+  workflow_dispatch:          # botón "Run workflow" para correrlo a mano
+    inputs:
+      limite:
+        description: "Procesar solo los primeros N juegos (vacío = todos)"
+        required: false
+
+concurrency:
+  group: scraper
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Compilar
+        run: dotnet build scraper -c Release
+
+      - name: Scraping (3 niveles de paralelismo)
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          EXTRA=""
+          if [ -n "${{ github.event.inputs.limite }}" ]; then EXTRA="--limite ${{ github.event.inputs.limite }}"; fi
+          dotnet run --project scraper -c Release --no-build -- scrape $EXTRA
+
+      - name: Publicar respaldo JSON (opcional)
+        if: ${{ vars.PUBLICAR_JSON == 'true' }}
+        run: |
+          git config user.name "preciopixel-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add web/data/deals.json
+          git diff --cached --quiet || git commit -m "Actualizar precios $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git push
