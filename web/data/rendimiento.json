@@ -1,5 +1,5 @@
 {
-  "generadoEn": "2026-11-12T03:09:10Z",
+  "generadoEn": "2026-11-13T02:49:44Z",
   "mediciones": [
     {
       "config": "secuencial",
@@ -7,20 +7,19 @@
       "hilos": 1,
       "nucleos": 4,
       "juegos": 260,
-      "segundos": 1019.46,
-      "segundosPreparacion": 0.65,
-      "peticiones": 2766,
+      "segundos": 862.98,
+      "segundosPreparacion": 0.41,
+      "peticiones": 3012,
       "reintentos": 0,
       "hilosDistintos": 8,
-      "juegosOk": 75,
-      "juegosParciales": 176,
-      "juegosSinDatos": 9,
+      "juegosOk": 252,
+      "juegosParciales": 4,
+      "juegosSinDatos": 4,
       "fuentesCaidas": [
-        "PlayStation Store (182 fallos)",
         "HowLongToBeat (1 fallos)"
       ],
       "maquina": "GitHub Actions · Ubuntu 26.04.1 LTS · 4 núcleos lógicos",
-      "fecha": "2026-11-12T03:09:01.0739844Z"
+      "fecha": "2026-11-13T02:49:35.8204524Z"
     },
     {
       "config": "1",
@@ -28,19 +27,19 @@
       "hilos": 1,
       "nucleos": 4,
       "juegos": 260,
-      "segundos": 333.19,
-      "segundosPreparacion": 0.42,
-      "peticiones": 3020,
+      "segundos": 551.05,
+      "segundosPreparacion": 0.61,
+      "peticiones": 3065,
       "reintentos": 0,
       "hilosDistintos": 7,
-      "juegosOk": 252,
-      "juegosParciales": 2,
-      "juegosSinDatos": 6,
+      "juegosOk": 251,
+      "juegosParciales": 7,
+      "juegosSinDatos": 2,
       "fuentesCaidas": [
         "HowLongToBeat (1 fallos)"
       ],
       "maquina": "GitHub Actions · Ubuntu 26.04.1 LTS · 4 núcleos lógicos",
-      "fecha": "2026-11-12T02:57:27.265886Z"
+      "fecha": "2026-11-13T02:44:26.9080882Z"
     },
     {
       "config": "2",
@@ -48,19 +47,19 @@
       "hilos": 2,
       "nucleos": 4,
       "juegos": 260,
-      "segundos": 209.46,
-      "segundosPreparacion": 0.48,
-      "peticiones": 2988,
+      "segundos": 175.65,
+      "segundosPreparacion": 0.45,
+      "peticiones": 2983,
       "reintentos": 0,
-      "hilosDistintos": 7,
-      "juegosOk": 251,
-      "juegosParciales": 3,
-      "juegosSinDatos": 6,
+      "hilosDistintos": 6,
+      "juegosOk": 250,
+      "juegosParciales": 5,
+      "juegosSinDatos": 5,
       "fuentesCaidas": [
         "HowLongToBeat (1 fallos)"
       ],
       "maquina": "GitHub Actions · Ubuntu 26.04.1 LTS · 4 núcleos lógicos",
-      "fecha": "2026-11-12T02:55:32.5496959Z"
+      "fecha": "2026-11-13T02:37:57.6730754Z"
     },
     {
       "config": "4",
@@ -68,19 +67,19 @@
       "hilos": 4,
       "nucleos": 4,
       "juegos": 260,
-      "segundos": 177.86,
-      "segundosPreparacion": 0.36,
-      "peticiones": 2998,
-      "reintentos": 0,
-      "hilosDistintos": 8,
-      "juegosOk": 252,
-      "juegosParciales": 6,
+      "segundos": 172.92,
+      "segundosPreparacion": 0.47,
+      "peticiones": 2986,
+      "reintentos": 1,
+      "hilosDistintos": 7,
+      "juegosOk": 251,
+      "juegosParciales": 7,
       "juegosSinDatos": 2,
       "fuentesCaidas": [
         "HowLongToBeat (1 fallos)"
       ],
       "maquina": "GitHub Actions · Ubuntu 26.04.1 LTS · 4 núcleos lógicos",
-      "fecha": "2026-11-12T02:54:50.1886012Z"
+      "fecha": "2026-11-13T02:38:02.3703169Z"
     },
     {
       "config": "8",
@@ -88,19 +87,19 @@
       "hilos": 8,
       "nucleos": 4,
       "juegos": 260,
-      "segundos": 225.72,
-      "segundosPreparacion": 0.53,
-      "peticiones": 2998,
+      "segundos": 111.22,
+      "segundosPreparacion": 0.66,
+      "peticiones": 2969,
       "reintentos": 0,
-      "hilosDistintos": 7,
-      "juegosOk": 252,
+      "hilosDistintos": 13,
+      "juegosOk": 250,
       "juegosParciales": 6,
-      "juegosSinDatos": 2,
+      "juegosSinDatos": 4,
       "fuentesCaidas": [
         "HowLongToBeat (1 fallos)"
       ],
       "maquina": "GitHub Actions · Ubuntu 26.04.1 LTS · 4 núcleos lógicos",
-      "fecha": "2026-11-12T02:55:43.081566Z"
+      "fecha": "2026-11-13T02:36:55.6435691Z"
     },
     {
       "config": "16",
@@ -108,19 +107,19 @@
       "hilos": 16,
       "nucleos": 4,
       "juegos": 260,
-      "segundos": 159.28,
-      "segundosPreparacion": 0.49,
-      "peticiones": 2993,
+      "segundos": 165.19,
+      "segundosPreparacion": 0.66,
+      "peticiones": 2974,
       "reintentos": 0,
-      "hilosDistintos": 7,
+      "hilosDistintos": 9,
       "juegosOk": 251,
-      "juegosParciales": 1,
-      "juegosSinDatos": 8,
+      "juegosParciales": 7,
+      "juegosSinDatos": 2,
       "fuentesCaidas": [
         "HowLongToBeat (1 fallos)"
       ],
       "maquina": "GitHub Actions · Ubuntu 26.04.1 LTS · 4 núcleos lógicos",
-      "fecha": "2026-11-12T02:54:48.673681Z"
+      "fecha": "2026-11-13T02:37:51.9870118Z"
     },
     {
       "config": "32",
@@ -128,19 +127,19 @@
       "hilos": 32,
       "nucleos": 4,
       "juegos": 260,
-      "segundos": 174.4,
-      "segundosPreparacion": 0.66,
-      "peticiones": 3018,
+      "segundos": 85.98,
+      "segundosPreparacion": 0.6,
+      "peticiones": 2974,
       "reintentos": 0,
-      "hilosDistintos": 13,
-      "juegosOk": 252,
-      "juegosParciales": 6,
-      "juegosSinDatos": 2,
+      "hilosDistintos": 10,
+      "juegosOk": 251,
+      "juegosParciales": 1,
+      "juegosSinDatos": 8,
       "fuentesCaidas": [
         "HowLongToBeat (1 fallos)"
       ],
       "maquina": "GitHub Actions · Ubuntu 26.04.1 LTS · 4 núcleos lógicos",
-      "fecha": "2026-11-12T02:58:16.3388329Z"
+      "fecha": "2026-11-13T02:36:22.6566665Z"
     }
   ]
 }
