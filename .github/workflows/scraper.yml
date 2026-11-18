@@ -12,7 +12,11 @@ name: Scraper PrecioPixel
 
 on:
   schedule:
-    - cron: "17 */6 * * *"   # cada 6 horas (UTC). Cambia aquí la frecuencia que defina el equipo.
+    # GitHub no garantiza la hora de las corridas programadas: cuando sus servidores están cargados las
+    # retrasa (a veces horas) y descarta algunas. Con "cada 6 horas" solo llegaban unas 2 al día, así que
+    # se piden cada 2 horas y en la práctica llegan cerca de cada 4 a 6 horas.
+    # El minuto 23 evita el inicio de la hora, que es cuando GitHub está más cargado. Horas en UTC.
+    - cron: "23 */2 * * *"
   workflow_dispatch:          # botón "Run workflow" para correrlo a mano
     inputs:
       limite:

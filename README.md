@@ -155,7 +155,8 @@ dotnet run -- list
    - `FIREBASE_PROJECT_ID` = id del proyecto
    - `FIREBASE_SERVICE_ACCOUNT` = pega el contenido completo del `.json`
 3. En la pestaña **Actions** ejecuta "Scraper PrecioPixel" con **Run workflow** para probar.
-4. La frecuencia está en `.github/workflows/scraper.yml` (`cron: "17 */6 * * *"` = cada 6 horas). Cámbiala a la que defina el equipo.
+4. La frecuencia está en `.github/workflows/scraper.yml` (`cron: "23 */2 * * *"`). GitHub **no garantiza** la hora de las corridas programadas: cuando está cargado las retrasa (a veces horas) y descarta algunas; pidiendo una cada 2 horas llegan, en la práctica, cerca de cada 4 a 6 horas. Si el repositorio pasa 60 días sin commits, GitHub pausa las corridas programadas hasta que se vuelvan a activar en la pestaña Actions.
+5. Si Firestore responde que está saturado (`ResourceExhausted`), el scraper guarda en lotes de 25 y reintenta con espera exponencial; si aun así falla, la web sigue mostrando la corrida anterior y su hora.
 
 ### 5. Publicar la web
 **Vercel**: New Project → importa el repositorio → Deploy (el `vercel.json` ya indica que la carpeta publicada es `web`).
