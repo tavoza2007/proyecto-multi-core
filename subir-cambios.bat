@@ -9,7 +9,8 @@ rem ===============================================================
 chcp 65001 >nul
 cd /d "%~dp0"
 set "LOG=%~dp0salida-subir.txt"
-set "MENSAJE=Guardar en Firestore con reintentos y corridas cada 2 horas"
+set "MENSAJE=%~1"
+if not defined MENSAJE set "MENSAJE=Actualizar PrecioPixel"
 
 echo Compilando...
 > "%LOG%" echo ==== COMPILACION ====

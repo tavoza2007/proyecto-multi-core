@@ -74,7 +74,7 @@ a { color: var(--accion); }
 /* ─── Barra superior ─── */
 .barra {
   display: grid;
-  grid-template-columns: auto minmax(220px, 520px) 1fr;
+  grid-template-columns: auto minmax(220px, 1fr) auto;
   align-items: center;
   gap: 24px;
   padding: 18px clamp(16px, 3vw, 40px);
@@ -107,6 +107,10 @@ a { color: var(--accion); }
 .buscar svg { width: 18px; height: 18px; fill: none; stroke: var(--tinta-suave); stroke-width: 2; stroke-linecap: round; flex: none; }
 .buscar input { border: 0; background: none; outline: none; width: 100%; height: 100%; }
 
+.barra__derecha { justify-self: end; display: flex; align-items: center; gap: 16px; min-width: 0; }
+.barra .buscar { width: 100%; max-width: 560px; justify-self: center; }
+.barra__derecha .estado { white-space: nowrap; }
+.boton--rend { white-space: nowrap; flex: none; }
 .estado { justify-self: end; display: flex; align-items: center; gap: 8px; font-size: .85rem; color: var(--tinta-suave); text-align: right; }
 .estado__punto { width: 9px; height: 9px; border-radius: 50%; background: var(--tinta-suave); flex: none; }
 .estado[data-modo="vivo"] .estado__punto { background: var(--mc-alto); box-shadow: 0 0 0 0 rgba(46, 157, 78, .5); animation: latido 2.4s infinite; }
@@ -406,9 +410,13 @@ a { color: var(--accion); }
 .pie p { max-width: 75ch; margin: 0 0 6px; }
 
 /* ─── Responsive ─── */
+@media (max-width: 1400px) {
+  .barra:not(.barra--simple) .barra__lema { display: none; }
+}
 @media (max-width: 980px) {
   .barra { grid-template-columns: 1fr auto; }
   .buscar { grid-column: 1 / -1; order: 3; }
+  .barra .buscar { max-width: none; }
   .barra__lema { display: none; }
 }
 
@@ -437,6 +445,15 @@ a { color: var(--accion); }
   .hltb__fila { grid-template-columns: 1fr 70px; }
   .hltb__barra { grid-column: 1 / -1; grid-row: 2; }
   .precios .col-plat { display: none; }
+}
+
+@media (max-width: 600px) {
+  /* En celular: logo y botón arriba, buscador en medio y el estado debajo */
+  .barra { row-gap: 12px; }
+  .barra__derecha { display: contents; }
+  .boton--rend { grid-column: 2; grid-row: 1; }
+  .barra .buscar { grid-row: 2; }
+  .barra .estado { grid-column: 1 / -1; grid-row: 3; justify-self: start; text-align: left; }
 }
 
 @media (max-width: 480px) {
