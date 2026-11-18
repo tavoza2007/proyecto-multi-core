@@ -12,11 +12,12 @@ name: Scraper PrecioPixel
 
 on:
   schedule:
-    # GitHub no garantiza la hora de las corridas programadas: cuando sus servidores están cargados las
-    # retrasa (a veces horas) y descarta algunas. Con "cada 6 horas" solo llegaban unas 2 al día, así que
-    # se piden cada 2 horas y en la práctica llegan cerca de cada 4 a 6 horas.
-    # El minuto 23 evita el inicio de la hora, que es cuando GitHub está más cargado. Horas en UTC.
-    - cron: "23 */2 * * *"
+    # Corrida normal: cada 4 horas (UTC). GitHub no garantiza la hora: cuando está cargado retrasa
+    # las corridas programadas y descarta algunas. El minuto 23 evita el inicio de la hora.
+    - cron: "23 */4 * * *"
+    # PRUEBA TEMPORAL: cada 5 minutos para comprobar que se actualiza solo. Se apaga sola a las
+    # 00:30 UTC del 19 nov (6:30 p. m. en México): desde esa hora estas corridas no hacen nada.
+    - cron: "*/5 * * * *"
   workflow_dispatch:          # botón "Run workflow" para correrlo a mano
     inputs:
       limite:
@@ -35,16 +36,30 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
+      - name: Decidir si corre
+        id: decidir
+        run: |
+          CORRER=true
+          if [ "${{ github.event.schedule }}" = "*/5 * * * *" ] && [ "$(date -u +%s)" -gt "$(date -u -d '2026-11-19T00:30:00Z' +%s)" ]; then
+            CORRER=false
+            echo "Terminó la prueba de cada 5 minutos: esta corrida no hace nada."
+          fi
+          echo "correr=$CORRER" >> "$GITHUB_OUTPUT"
+
       - uses: actions/checkout@v4
+        if: steps.decidir.outputs.correr == 'true'
 
       - uses: actions/setup-dotnet@v4
+        if: steps.decidir.outputs.correr == 'true'
         with:
           dotnet-version: "8.0.x"
 
       - name: Compilar
+        if: steps.decidir.outputs.correr == 'true'
         run: dotnet build scraper -c Release
 
       - name: Scraping (3 niveles de paralelismo)
+        if: steps.decidir.outputs.correr == 'true'
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
@@ -54,7 +69,7 @@ jobs:
           dotnet run --project scraper -c Release --no-build -- scrape $EXTRA
 
       - name: Publicar respaldo JSON (opcional)
-        if: ${{ vars.PUBLICAR_JSON == 'true' }}
+        if: ${{ steps.decidir.outputs.correr == 'true' && vars.PUBLICAR_JSON == 'true' }}
         run: |
           git config user.name "preciopixel-bot"
           git config user.email "actions@users.noreply.github.com"
