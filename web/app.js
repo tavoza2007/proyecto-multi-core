@@ -257,7 +257,9 @@ function pintarEstado() {
   $("#aviso-demo").hidden = !estado.demo;
   if (estado.modo === "error") return;
   const fin = fecha(estado.meta?.fin);
-  const cuando = fin ? `Actualizado el ${fechaHoraCorta(fin)}` : "Sin fecha de actualización";
+  // Barra de arriba: tiempo relativo ("hace 25 minutos"), se repinta cada 30 s. La fecha exacta queda en el
+  // tooltip y en el detalle de cada juego.
+  const cuando = fin ? `Actualizado ${haceCuanto(fin)}` : "Sin fecha de actualización";
   $("#estado-texto").textContent = estado.modo === "vivo" ? `En vivo · ${cuando}` : cuando;
   if (fin) caja.title = `Última revisión de precios: ${fechaHora(fin)} (${haceCuanto(fin)})`;
 }
