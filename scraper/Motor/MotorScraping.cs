@@ -17,6 +17,7 @@ namespace PrecioPixel.Motor;
 ///  NIVEL 3 — Dentro de "precios", cada tienda: Steam ‖ GOG ‖ eShop ‖ PS Store ‖ Amazon (Task.WhenAll).
 ///
 /// Con modo secuencial se hace exactamente el mismo trabajo pero uno por uno (sirve para medir el speedup).
+/// Cada nivel se puede encender o apagar por separado (<see cref="ModoParalelismo"/>) para medir cuánto aporta.
 /// </summary>
 public sealed class MotorScraping
 {
@@ -42,10 +43,19 @@ public sealed class MotorScraping
         _ofertas = new DetectorOfertas(opt.Ofertas);
     }
 
-    public async Task<(List<ResultadoJuego> resultados, ResumenEjecucion resumen)> EjecutarAsync(
+    /// <summary>Corrida normal: los tres niveles en paralelo, o todo secuencial.</summary>
+    public Task<(List<ResultadoJuego> resultados, ResumenEjecucion resumen)> EjecutarAsync(
         IReadOnlyList<Juego> juegos,
         IReadOnlyDictionary<string, ResultadoJuego> previos,
         bool paralelo,
+        CancellationToken ct) =>
+        EjecutarAsync(juegos, previos,
+            paralelo ? ModoParalelismo.Completo(_opt.Paralelismo.JuegosEnParaleloEfectivo) : ModoParalelismo.Secuencial, ct);
+
+    public async Task<(List<ResultadoJuego> resultados, ResumenEjecucion resumen)> EjecutarAsync(
+        IReadOnlyList<Juego> juegos,
+        IReadOnlyDictionary<string, ResultadoJuego> previos,
+        ModoParalelismo modo,
         CancellationToken ct)
     {
         _hilosUsados.Clear();
@@ -57,31 +67,31 @@ public sealed class MotorScraping
         var resumen = new ResumenEjecucion
         {
             Inicio = DateTime.UtcNow,
-            Modo = paralelo ? "paralelo" : "secuencial",
+            Modo = modo.Nombre,
             Juegos = juegos.Count,
-            MaxJuegosEnParalelo = paralelo ? _opt.Paralelismo.JuegosEnParaleloEfectivo : 1,
+            MaxJuegosEnParalelo = modo.Nivel1 ? modo.Hilos : 1,
         };
         var reloj = Stopwatch.StartNew();
         var resultados = new ConcurrentBag<ResultadoJuego>();
 
         // ───────────── NIVEL 1: un juego por tarea ─────────────
-        if (paralelo)
+        if (modo.Nivel1)
         {
             var opciones = new ParallelOptions
             {
-                MaxDegreeOfParallelism = _opt.Paralelismo.JuegosEnParaleloEfectivo,
+                MaxDegreeOfParallelism = modo.Hilos,
                 CancellationToken = ct,
             };
             await Parallel.ForEachAsync(juegos, opciones, async (juego, tok) =>
             {
                 var previo = previos.GetValueOrDefault(juego.Id);
-                resultados.Add(await ProcesarJuegoAsync(juego, previo, paralelo: true, juegos.Count, tok));
+                resultados.Add(await ProcesarJuegoAsync(juego, previo, modo, juegos.Count, tok));
             });
         }
         else
         {
             foreach (var juego in juegos)
-                resultados.Add(await ProcesarJuegoAsync(juego, previos.GetValueOrDefault(juego.Id), paralelo: false, juegos.Count, ct));
+                resultados.Add(await ProcesarJuegoAsync(juego, previos.GetValueOrDefault(juego.Id), modo, juegos.Count, ct));
         }
 
         reloj.Stop();
@@ -105,15 +115,16 @@ public sealed class MotorScraping
     }
 
     // ───────────── NIVEL 2: las fuentes de UN juego ─────────────
-    private async Task<ResultadoJuego> ProcesarJuegoAsync(Juego juego, ResultadoJuego? previo, bool paralelo, int total, CancellationToken ct)
+    private async Task<ResultadoJuego> ProcesarJuegoAsync(Juego juego, ResultadoJuego? previo, ModoParalelismo modo, int total, CancellationToken ct)
     {
         MarcarHilo();
         var reloj = Stopwatch.StartNew();
 
-        Func<Task<ResultadoPrecios>> fPrecios = () => ObtenerPreciosAsync(juego, paralelo, ct);
+        // El nivel 3 gobierna las consultas "dentro" de una fuente: las tiendas y las consolas de Metacritic
+        Func<Task<ResultadoPrecios>> fPrecios = () => ObtenerPreciosAsync(juego, modo.Nivel3, ct);
         Func<Task<(MetacriticInfo? valor, string? error)>> fMeta = () => _metacritic is null
             ? Task.FromResult<(MetacriticInfo?, string?)>((null, null))
-            : IntentarAsync("Metacritic", () => _metacritic.ObtenerAsync(juego, ct), ct);
+            : IntentarAsync("Metacritic", () => _metacritic.ObtenerAsync(juego, modo.Nivel3, ct), ct);
         Func<Task<(HltbInfo? valor, string? error)>> fHltb = () => _hltb is null
             ? Task.FromResult<(HltbInfo?, string?)>((null, null))
             : IntentarAsync("HowLongToBeat", () => _hltb.ObtenerAsync(juego, ct), ct);
@@ -122,7 +133,7 @@ public sealed class MotorScraping
         (MetacriticInfo? valor, string? error) meta;
         (HltbInfo? valor, string? error) hltb;
 
-        if (paralelo)
+        if (modo.Nivel2)
         {
             var tPrecios = fPrecios();
             var tMeta = fMeta();

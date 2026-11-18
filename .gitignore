@@ -13,3 +13,6 @@ serviceAccount*.json
 
 # Resultados de pruebas locales
 salida*.txt
+
+# Mensaje temporal que usa subir-cambios.bat
+mensaje-commit.txt

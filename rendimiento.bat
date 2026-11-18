@@ -31,7 +31,7 @@ if errorlevel 1 (
 )
 echo Midiendo... tarda cerca de una hora. No cierres esta ventana ni apagues la computadora.
 >> "%~dp0salida-rendimiento.txt" echo ==== RENDIMIENTO ====
-dotnet run -c Release --no-build -- rendimiento --configs secuencial,1,2,4,8,16,32 --salida "%~dp0web\data\rendimiento-pc.json" >> "%~dp0salida-rendimiento.txt" 2>&1
+dotnet run -c Release --no-build -- rendimiento --configs secuencial,solo-n3,solo-n2,solo-n1,1,2,4,8,16,32 --salida "%~dp0web\data\rendimiento-pc.json" >> "%~dp0salida-rendimiento.txt" 2>&1
 >> "%~dp0salida-rendimiento.txt" echo ==== LISTO ====
 echo.
 echo Listo. Resultados en web\data\rendimiento-pc.json y el registro en salida-rendimiento.txt

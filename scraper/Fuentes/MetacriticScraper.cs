@@ -10,7 +10,7 @@ namespace PrecioPixel.Fuentes;
 
 /// <summary>
 /// Metacritic: obtiene el Metascore del juego PARA CADA CONSOLA asociada en el repo.
-/// Las consultas de las distintas consolas de un mismo juego también se hacen en paralelo.
+/// Las consultas de las distintas consolas de un mismo juego también se hacen en paralelo (si el nivel 3 está activo).
 ///   https://www.metacritic.com/game/{slug}/critic-reviews/?platform={plataforma}
 /// De la página principal del juego también se toman la portada y la fecha de lanzamiento (JSON-LD datePublished).
 /// </summary>
@@ -21,29 +21,33 @@ public sealed partial class MetacriticScraper(ClienteHttpResiliente http, Buscad
     [GeneratedRegex(@"title=""Metascore (\d{1,3}) out of 100""", RegexOptions.IgnoreCase)]
     private static partial Regex RegexTitulo();
 
-    public async Task<MetacriticInfo> ObtenerAsync(Juego juego, CancellationToken ct)
+    /// <param name="consolasEnParalelo">
+    /// true: las páginas de cada consola se piden a la vez (Task.WhenAll). false: una por una, para que el modo
+    /// secuencial del análisis de rendimiento sea secuencial de verdad. Lo decide el nivel 3 del motor.
+    /// </param>
+    public async Task<MetacriticInfo> ObtenerAsync(Juego juego, bool consolasEnParalelo, CancellationToken ct)
     {
         // 1) Slug fijado en el repo (campo metacriticSlug o urlsTienda.metacritic)
         string? fijo = juego.Url("metacritic") is { } u && RegexSlug().Match(u) is { Success: true } m ? m.Groups[1].Value
                      : string.IsNullOrWhiteSpace(juego.MetacriticSlug) ? null : juego.MetacriticSlug;
-        if (fijo is not null) return await ConSlugAsync(juego, fijo, ct) ?? new MetacriticInfo();
+        if (fijo is not null) return await ConSlugAsync(juego, fijo, consolasEnParalelo, ct) ?? new MetacriticInfo();
 
         // 2) Variantes del título: "alan-wake-2" no existe pero "alan-wake-ii" sí
         foreach (var slug in Texto.VariantesSlug(juego.Titulo, juego.Busqueda).Take(5))
-            if (await ConSlugAsync(juego, slug, ct) is { } info)
+            if (await ConSlugAsync(juego, slug, consolasEnParalelo, ct) is { } info)
                 return info;
 
         // 3) Último recurso: buscador web
         var encontrada = await buscador.PrimeraUrlAsync($"metacritic {juego.Titulo} game", x => RegexSlug().IsMatch(x), ct);
         return encontrada is null ? new MetacriticInfo()
-            : await ConSlugAsync(juego, RegexSlug().Match(encontrada).Groups[1].Value, ct) ?? new MetacriticInfo();
+            : await ConSlugAsync(juego, RegexSlug().Match(encontrada).Groups[1].Value, consolasEnParalelo, ct) ?? new MetacriticInfo();
     }
 
     [GeneratedRegex(@"metacritic\.com/game/([a-z0-9\-]+)")]
     private static partial Regex RegexSlug();
 
     /// <summary>null si la página del juego no existe con ese slug (404).</summary>
-    private async Task<MetacriticInfo?> ConSlugAsync(Juego juego, string slug, CancellationToken ct)
+    private async Task<MetacriticInfo?> ConSlugAsync(Juego juego, string slug, bool consolasEnParalelo, CancellationToken ct)
     {
         var urlJuego = $"https://www.metacritic.com/game/{slug}/";
 
@@ -59,18 +63,21 @@ public sealed partial class MetacriticScraper(ClienteHttpResiliente http, Buscad
             FechaLanzamiento = Fechas.Normalizar(general.Fecha),
         };
 
-        // Una tarea por consola → Task.WhenAll
-        var tareas = juego.Plataformas
+        // Una página por consola: a la vez (Task.WhenAll) o una por una
+        var consolas = juego.Plataformas
             .Where(p => Plataformas.Todas.TryGetValue(p, out var i) && i.MetacriticSlug is not null)
-            .Select(async p =>
-            {
-                var mcPlat = Plataformas.Todas[p].MetacriticSlug!;
-                var pagina = await LeerPaginaAsync($"{urlJuego}critic-reviews/?platform={mcPlat}", ct);
-                return (plataforma: p, pagina);
-            })
             .ToList();
+        async Task<(string plataforma, Pagina pagina)> LeerConsolaAsync(string p) =>
+            (p, await LeerPaginaAsync($"{urlJuego}critic-reviews/?platform={Plataformas.Todas[p].MetacriticSlug}", ct));
 
-        foreach (var (plataforma, pagina) in await Task.WhenAll(tareas))
+        var paginas = new List<(string plataforma, Pagina pagina)>();
+        if (consolasEnParalelo)
+            paginas.AddRange(await Task.WhenAll(consolas.Select(LeerConsolaAsync)));
+        else
+            foreach (var p in consolas)
+                paginas.Add(await LeerConsolaAsync(p));
+
+        foreach (var (plataforma, pagina) in paginas)
         {
             if (pagina.Score is not null) info.PorPlataforma[plataforma] = pagina.Score.Value;
             info.ImagenUrl ??= pagina.Portada;

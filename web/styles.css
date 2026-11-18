@@ -517,6 +517,12 @@ a { color: var(--accion); }
 .grafica .cruz { stroke: var(--tinta-suave); stroke-width: 1; stroke-dasharray: 3 3; }
 .grafica .zona { cursor: crosshair; }
 .grafica .marcador { stroke: var(--tarjeta); stroke-width: 2; }
+.grafica .bigote line { stroke: var(--tinta); stroke-width: 1.5; opacity: .55; }
+.rend__niveles:not([hidden]) { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 10px 32px; align-items: start; }
+.rend__niveles figure { margin: 0; min-width: 0; }
+.rend__niveles h3 { margin-top: 0; }
+.rend__niveles ul { padding-left: 20px; margin: 0 0 12px; }
+.rend__niveles li { margin-bottom: 6px; }
 .tooltip {
   position: absolute; z-index: 3; pointer-events: none;
   transform: translate(-50%, calc(-100% - 12px));
@@ -530,9 +536,9 @@ a { color: var(--accion); }
 
 .tabla-scroll { overflow-x: auto; }
 .mediciones { width: 100%; border-collapse: collapse; font-size: .9rem; }
-.mediciones th, .mediciones td { padding: 9px 10px; border-bottom: 1px solid var(--linea); text-align: right; white-space: nowrap; }
+.mediciones th, .mediciones td { padding: 9px 8px; border-bottom: 1px solid var(--linea); text-align: right; white-space: nowrap; }
 .mediciones th:first-child, .mediciones td:first-child { text-align: left; }
-.mediciones th { color: var(--tinta-suave); font-size: .8rem; font-weight: 700; }
+.mediciones th { color: var(--tinta-suave); font-size: .8rem; font-weight: 700; white-space: normal; vertical-align: bottom; min-width: 64px; line-height: 1.25; }
 .mediciones tbody tr:last-child td { border-bottom: 0; }
 .mediciones .destacada td { font-weight: 700; }
 
@@ -541,6 +547,10 @@ a { color: var(--accion); }
 .rend__texto li { margin-bottom: 6px; }
 .formula { display: inline-block; margin: 2px 0 6px; padding: 10px 16px; border-radius: 10px; background: var(--niebla); font: 700 1.05rem/1.3 var(--display); }
 .rend code, .pie code { font-size: .9em; background: var(--niebla); padding: 1px 5px; border-radius: 5px; }
+
+@media (max-width: 860px) {
+  .rend__niveles:not([hidden]) { grid-template-columns: 1fr; }
+}
 
 @media (max-width: 600px) {
   .barra--simple .barra__lema { display: none; }

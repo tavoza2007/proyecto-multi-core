@@ -28,9 +28,13 @@ if not defined BASH goto nobash
 >> "%LOG%" echo ==== GIT (%BASH%) ====
 set "CHERE_INVOKING=1"
 set "MSYSTEM=UCRT64"
+rem Si existe mensaje-commit.txt (no se sube: esta en .gitignore) se usa como mensaje completo del commit
+set "COMMIT=git commit -m '%MENSAJE%'"
+if exist "mensaje-commit.txt" set "COMMIT=git commit -F mensaje-commit.txt"
 echo Subiendo a GitHub...
-"%BASH%" -lc "git add . && git add -f .github/workflows && (git diff --cached --quiet || git commit -m '%MENSAJE%') && git pull --rebase && git push" >> "%LOG%" 2>&1
+"%BASH%" -lc "git add . && git add -f .github/workflows && (git diff --cached --quiet || %COMMIT%) && git pull --rebase && git push" >> "%LOG%" 2>&1
 if errorlevel 1 goto errorgit
+if exist "mensaje-commit.txt" del "mensaje-commit.txt"
 >> "%LOG%" echo ==== LISTO ====
 echo Listo: los cambios ya estan en GitHub.
 timeout /t 8 >nul

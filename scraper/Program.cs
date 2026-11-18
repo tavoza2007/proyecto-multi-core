@@ -19,7 +19,8 @@ using PrecioPixel.Util;
 //  Comandos:
 //    scrape     [--local] [--secuencial] [--limite N] [--verbose] [--sin-previos]   ← corrida normal
 //    benchmark  [--n 20] [--local]                                  ← secuencial vs paralelo, speedup (rápido)
-//    rendimiento [--configs secuencial,1,2,4,8] [--salida web/data/rendimiento.json] [--limite N]
+//    rendimiento [--configs secuencial,solo-n3,solo-n2,solo-n1,1,2,4,8] [--salida web/data/rendimiento.json] [--limite N]
+//                [--repeticiones N] [--repeticion R]
 //                                                                    ← análisis de rendimiento completo (todos los juegos)
 //    seed       [--archivo seed/juegos.json] [--sincronizar]        ← sube la lista de juegos a Firestore
 //    add        --titulo "X" --plataformas pc,ps5 --precio 59.99 [--anio 2024] [--tipo juego]
@@ -162,8 +163,9 @@ static async Task<int> BenchmarkAsync(IRepositorio repo, Opciones opt, Dictionar
 }
 
 // Análisis de rendimiento: los MISMOS juegos (todos los activos del REPO) con distintas configuraciones.
-//   secuencial → los tres niveles uno por uno (base del speedup)
-//   N          → N juegos a la vez en el nivel 1 (los niveles 2 y 3 siempre en paralelo)
+//   secuencial → ningún nivel en paralelo (base del speedup)
+//   N          → N juegos a la vez en el nivel 1, con los niveles 2 y 3 en paralelo ("max" = núcleos × 2)
+//   solo-n1 / solo-n2 / solo-n3 → un solo nivel en paralelo, para medir cuánto aporta cada uno
 // Cada configuración usa un cliente HTTP nuevo y un calentamiento que no se mide. No se guarda nada en el REPO.
 static async Task<int> RendimientoAsync(IRepositorio repo, Opciones opt, Dictionary<string, string> a, CancellationToken ct)
 {
@@ -174,46 +176,64 @@ static async Task<int> RendimientoAsync(IRepositorio repo, Opciones opt, Diction
     if (juegos.Count == 0) { Log.Error("El repo no tiene juegos activos."); return 1; }
 
     var maximo = Environment.ProcessorCount * 2;
-    var configs = (a.GetValueOrDefault("configs") ?? $"secuencial,1,2,4,{maximo}")
+    var configs = (a.GetValueOrDefault("configs") ?? $"secuencial,solo-n3,solo-n2,solo-n1,1,2,4,{maximo}")
         .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
         .Select(c => c.Equals("max", StringComparison.OrdinalIgnoreCase) ? maximo.ToString(CultureInfo.InvariantCulture) : c.ToLowerInvariant())
         .Distinct()
         .ToList();
-    var invalidas = configs.Where(c => c != "secuencial" && !(int.TryParse(c, out var h) && h > 0)).ToList();
-    if (invalidas.Count > 0) { Log.Error($"Configuraciones no válidas: {string.Join(", ", invalidas)}. Usa secuencial, max o números."); return 1; }
+    var modos = new List<(string config, ModoParalelismo modo)>();
+    foreach (var cfg in configs)
+    {
+        ModoParalelismo? elegido = cfg switch
+        {
+            "secuencial" => ModoParalelismo.Secuencial,
+            "solo-n1" => new ModoParalelismo(true, false, false, maximo),
+            "solo-n2" => new ModoParalelismo(false, true, false, 1),
+            "solo-n3" => new ModoParalelismo(false, false, true, 1),
+            _ when int.TryParse(cfg, out var h) && h > 0 => ModoParalelismo.Completo(h),
+            _ => null,
+        };
+        if (elegido is null) { Log.Error($"Configuración no válida: {cfg}. Usa secuencial, solo-n1, solo-n2, solo-n3, max o un número."); return 1; }
+        modos.Add((cfg, elegido));
+    }
 
     var salida = Rutas.Resolver(a.GetValueOrDefault("salida") ?? "web/data/rendimiento.json");
     var calentamiento = int.TryParse(a.GetValueOrDefault("calentamiento"), out var w) ? Math.Max(0, w) : 3;
+    // --repeticion R: número con el que se marca esta medición (GitHub corre cada repetición en otro servidor)
+    // --repeticiones N: mide N vueltas completas aquí mismo (vuelta 1 de todas las configuraciones, luego la 2…)
+    var repeticion = int.TryParse(a.GetValueOrDefault("repeticion"), out var rep) ? Math.Max(1, rep) : 1;
+    var vueltas = int.TryParse(a.GetValueOrDefault("repeticiones"), out var nv) ? Math.Max(1, nv) : 1;
     var maquina = (Environment.GetEnvironmentVariable("GITHUB_ACTIONS") == "true" ? "GitHub Actions · " : "") +
                   $"{RuntimeInformation.OSDescription.Trim()} · {Environment.ProcessorCount} núcleos lógicos";
     var vacio = new Dictionary<string, ResultadoJuego>();
     var archivo = new ArchivoRendimiento();
 
     Log.Titulo($"ANÁLISIS DE RENDIMIENTO · {juegos.Count} juegos · {maquina}");
-    Log.Info($"Configuraciones: {string.Join(", ", configs)} · calentamiento: {calentamiento} juegos (no se mide)");
+    Log.Info($"Configuraciones: {string.Join(", ", configs)} · " +
+             (vueltas > 1 ? $"{vueltas} repeticiones" : $"repetición {repeticion}") +
+             $" · calentamiento: {calentamiento} juegos (no se mide)");
 
-    foreach (var config in configs)
+    for (var vuelta = 0; vuelta < vueltas; vuelta++)
+    foreach (var (config, modo) in modos)
     {
-        var secuencial = config == "secuencial";
-        var hilos = secuencial ? 1 : int.Parse(config, CultureInfo.InvariantCulture);
-        opt.Paralelismo.MaxJuegosEnParalelo = hilos;
-
         // Cliente HTTP nuevo por configuración: sin conexiones abiertas ni circuitos de la corrida anterior
         using var http = new ClienteHttpResiliente(opt.Red, opt.Paralelismo.MaxPeticionesPorHost);
         var (motor, _, _) = CrearMotor(http, opt);
 
         if (calentamiento > 0)
-            await motor.EjecutarAsync(juegos.Take(calentamiento).ToList(), vacio, paralelo: !secuencial, ct);
+            await motor.EjecutarAsync(juegos.Take(calentamiento).ToList(), vacio, modo, ct);
 
-        Log.Titulo(secuencial ? "──────── SECUENCIAL ────────" : $"──────── PARALELO · {hilos} juegos a la vez ────────");
-        var (_, r) = await motor.EjecutarAsync(juegos, vacio, paralelo: !secuencial, ct);
+        Log.Titulo($"──────── {config.ToUpperInvariant()} · {modo}" + (vueltas > 1 ? $" · repetición {repeticion + vuelta}" : "") + " ────────");
+        var (_, r) = await motor.EjecutarAsync(juegos, vacio, modo, ct);
         ImprimirResumen(r);
 
         archivo.Mediciones.Add(new Medicion
         {
             Config = config,
-            Modo = secuencial ? "secuencial" : "paralelo",
-            Hilos = hilos,
+            Modo = modo.Nombre,
+            Niveles = modo.Niveles,
+            Repeticion = repeticion + vuelta,
+            Hilos = modo.Nivel1 ? modo.Hilos : 1,
             Nucleos = Environment.ProcessorCount,
             Juegos = juegos.Count,
             Segundos = r.DuracionSegundos,
@@ -231,21 +251,30 @@ static async Task<int> RendimientoAsync(IRepositorio repo, Opciones opt, Diction
         await archivo.EscribirAsync(salida, ct);
     }
 
-    // Tabla final: speedup = tiempo secuencial ÷ tiempo paralelo · eficiencia = speedup ÷ hilos
-    var tSecuencial = archivo.Mediciones.FirstOrDefault(m => m.Modo == "secuencial")?.Segundos;
-    Console.WriteLine();
-    Console.WriteLine("┌──────────────┬────────────┬──────────┬────────────┬────────────┐");
-    Console.WriteLine("│ Configuración│ Tiempo (s) │ Speedup  │ Eficiencia │ Peticiones │");
-    Console.WriteLine("├──────────────┼────────────┼──────────┼────────────┼────────────┤");
-    foreach (var m in archivo.Mediciones)
+    // Tabla final con las fórmulas del enunciado, sobre la MEDIANA de las repeticiones de cada configuración:
+    //   speedup = T secuencial / T configuración · eficiencia = speedup / número de trabajadores (hilos del nivel 1)
+    static double Mediana(IEnumerable<double> valores)
     {
-        var speedup = tSecuencial is { } ts && m.Segundos > 0 ? ts / m.Segundos : (double?)null;
-        var nombre = m.Modo == "secuencial" ? "Secuencial" : $"{m.Hilos} hilos";
+        var v = valores.OrderBy(x => x).ToArray();
+        return v.Length % 2 == 1 ? v[v.Length / 2] : (v[v.Length / 2 - 1] + v[v.Length / 2]) / 2;
+    }
+    var porConfig = archivo.Mediciones.GroupBy(m => m.Config)
+        .Select(g => (m: g.First(), segundos: Mediana(g.Select(x => x.Segundos)), reps: g.Count()))
+        .ToList();
+    var tSecuencial = porConfig.Where(x => x.m.Modo == "secuencial").Select(x => (double?)x.segundos).FirstOrDefault();
+    Console.WriteLine();
+    Console.WriteLine("┌──────────────┬──────────┬──────┬────────────┬──────────┬────────────┐");
+    Console.WriteLine("│ Configuración│ Niveles  │ Reps │ Tiempo (s) │ Speedup  │ Eficiencia │");
+    Console.WriteLine("├──────────────┼──────────┼──────┼────────────┼──────────┼────────────┤");
+    foreach (var (m, segundos, reps) in porConfig)
+    {
+        var speedup = tSecuencial is { } ts && segundos > 0 ? ts / segundos : (double?)null;
         var txtSpeedup = speedup is { } s1 ? $"{s1,7:0.00}x" : "     –  ";
         var txtEficiencia = speedup is { } s2 ? $"{s2 / m.Hilos,9:P0}" : "      –  ";
-        Console.WriteLine($"│ {nombre,-12} │ {m.Segundos,10:0.0} │ {txtSpeedup} │ {txtEficiencia}  │ {m.Peticiones,10} │");
+        Console.WriteLine($"│ {m.Config,-12} │ {m.Niveles,-8} │ {reps,4} │ {segundos,10:0.0} │ {txtSpeedup} │ {txtEficiencia}  │");
     }
-    Console.WriteLine("└──────────────┴────────────┴──────────┴────────────┴────────────┘");
+    Console.WriteLine("└──────────────┴──────────┴──────┴────────────┴──────────┴────────────┘");
+    if (porConfig.Any(x => x.reps > 1)) Log.Info("Tiempo = mediana de las repeticiones.");
     Log.Ok($"Mediciones guardadas en {salida}");
     return 0;
 }

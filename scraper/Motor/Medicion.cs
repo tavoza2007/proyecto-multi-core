@@ -6,12 +6,24 @@ namespace PrecioPixel.Motor;
 /// <summary>
 /// Una corrida del análisis de rendimiento: la MISMA lista de juegos con una configuración de paralelismo distinta.
 ///   "secuencial" → los tres niveles uno por uno (la base para calcular el speedup)
-///   "8"          → 8 juegos a la vez en el nivel 1; los niveles 2 y 3 siempre en paralelo
+///   "8"          → 8 juegos a la vez en el nivel 1, con los niveles 2 y 3 en paralelo
+///   "solo-n1"    → solo el nivel 1 en paralelo (núcleos × 2 juegos a la vez; fuentes y tiendas una por una)
+///   "solo-n2"    → solo el nivel 2 (las fuentes de cada juego a la vez; juegos y tiendas uno por uno)
+///   "solo-n3"    → solo el nivel 3 (las tiendas de cada juego a la vez; juegos y fuentes uno por uno)
+/// Cada configuración se mide varias veces (Repeticion) y la página usa la mediana.
 /// </summary>
 public sealed class Medicion
 {
     public string Config { get; set; } = "";
+
+    /// <summary>"secuencial", "paralelo" (los tres niveles) o "niveles" (solo algunos niveles).</summary>
     public string Modo { get; set; } = "paralelo";
+
+    /// <summary>Niveles encendidos: "1+2+3", "3", "ninguno"…</summary>
+    public string Niveles { get; set; } = "";
+
+    /// <summary>Número de repetición de esta configuración (1, 2, 3…).</summary>
+    public int Repeticion { get; set; } = 1;
 
     /// <summary>Juegos procesados a la vez (nivel 1). En secuencial es 1.</summary>
     public int Hilos { get; set; }

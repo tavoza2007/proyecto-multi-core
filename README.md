@@ -30,7 +30,7 @@ Implementa el *Modelo de referencia – Programación Multicore v1.7*:
 ## Arquitectura
 
 ```
-                 ┌──────────────── GitHub Actions (cron cada 6 h) ────────────────┐
+                 ┌──────── GitHub Actions (cada hora, disparado por cron-job.org) ─┐
                  │                                                                 │
  Firestore       │   dotnet run -- scrape                                          │
  juegos/{slug} ──┼─► NIVEL 1  Parallel.ForEachAsync(juegos, núcleos×2)             │
@@ -155,7 +155,10 @@ dotnet run -- list
    - `FIREBASE_PROJECT_ID` = id del proyecto
    - `FIREBASE_SERVICE_ACCOUNT` = pega el contenido completo del `.json`
 3. En la pestaña **Actions** ejecuta "Scraper PrecioPixel" con **Run workflow** para probar.
-4. La frecuencia está en `.github/workflows/scraper.yml` (`cron: "23 */2 * * *"`). GitHub **no garantiza** la hora de las corridas programadas: cuando está cargado las retrasa (a veces horas) y descarta algunas; pidiendo una cada 2 horas llegan, en la práctica, cerca de cada 4 a 6 horas. Si el repositorio pasa 60 días sin commits, GitHub pausa las corridas programadas hasta que se vuelvan a activar en la pestaña Actions.
+4. **Frecuencia: cada hora.** GitHub **no garantiza** la hora de sus corridas programadas (`schedule`): cuando está cargado las retrasa, a veces horas, y descarta algunas. Por eso el disparador principal es [cron-job.org](https://cron-job.org): un trabajo llamado "Scraper PrecioPixel" hace cada hora, en el minuto 7 (hora de Ciudad de México), un `POST` a `https://api.github.com/repos/tavoza2007/proyecto-multi-core/actions/workflows/scraper.yml/dispatches` con el cuerpo `{"ref":"main"}`; es lo mismo que presionar **Run workflow**. Se autentica con un token *fine-grained* de GitHub que solo tiene acceso a este repositorio y solo el permiso **Actions: Read and write** (se guarda en cron-job.org, nunca en el repositorio). Esto no es una fuente de datos: los precios se siguen obteniendo solo con scraping.
+   - Respaldo: `.github/workflows/scraper.yml` conserva `cron: "23 */4 * * *"` por si cron-job.org fallara. Si el repositorio pasa 60 días sin commits, GitHub pausa esas corridas programadas hasta que se vuelvan a activar en la pestaña Actions.
+   - Cada hora y no más seguido por el plan gratuito de Firebase (20 000 escrituras al día): cada corrida escribe unos 260 documentos, así que 24 corridas usan cerca de 6 300.
+   - Para cambiar la frecuencia se edita el horario del trabajo en cron-job.org; no hace falta tocar el código.
 5. Si Firestore responde que está saturado (`ResourceExhausted`), el scraper guarda en lotes de 25 y reintenta con espera exponencial; si aun así falla, la web sigue mostrando la corrida anterior y su hora.
 
 ### 5. Publicar la web
@@ -171,20 +174,23 @@ La página escucha Firestore con `onSnapshot`: cuando el scraper termina, los pr
 El comando `rendimiento` hace el scraping de **todos los juegos del repo** varias veces, una por configuración, y guarda los tiempos en un JSON:
 
 ```bash
-dotnet run -- rendimiento --configs secuencial,1,2,4,8,16,32 --salida ../web/data/rendimiento.json
+dotnet run -- rendimiento --configs secuencial,solo-n3,solo-n2,solo-n1,1,2,4,8,16,32 --salida ../web/data/rendimiento.json
 ```
 
-- `secuencial`: los tres niveles uno por uno. Es la base del speedup.
-- `1`, `2`, `4`, `8`…: juegos procesados a la vez en el nivel 1 (`Parallel.ForEachAsync`); los niveles 2 y 3 siempre en paralelo. `max` = núcleos × 2.
+- `secuencial`: ningún nivel en paralelo (juegos, fuentes, tiendas y consolas de Metacritic uno por uno). Es la base del speedup.
+- `1`, `2`, `4`, `8`…: juegos procesados a la vez en el nivel 1 (`Parallel.ForEachAsync`), con los niveles 2 y 3 en paralelo. `max` = núcleos × 2.
+- `solo-n1`, `solo-n2`, `solo-n3`: un solo nivel en paralelo y los otros dos apagados, para medir **el efecto de cada nivel** por separado (`solo-n1` usa núcleos × 2 juegos a la vez).
+- `--repeticion R` solo marca el número de repetición en el JSON; la página agrupa por configuración y usa la **mediana**.
 - Cada configuración usa un cliente HTTP nuevo, un calentamiento de 3 juegos que no se mide y ningún resultado anterior. No escribe nada en el repo.
 
-**En GitHub Actions** (recomendado): pestaña **Actions → Rendimiento (speedup) → Run workflow**. Cada configuración corre en su propio servidor de 4 núcleos al mismo tiempo (así ninguna hereda bloqueos de otra); al final se juntan en `web/data/rendimiento.json` y la web los muestra en **`/rendimiento.html`**: tiempo, speedup (medido, ideal y modelo de Amdahl), eficiencia, tabla con Karp–Flatt y la fracción secuencial ajustada. Tarda cerca de una hora (la corrida secuencial es la más larga).
+**En GitHub Actions** (recomendado): pestaña **Actions → Rendimiento (speedup) → Run workflow**. Mide las 10 configuraciones **3 veces cada una** (30 mediciones); cada medición corre en su propio servidor de 4 núcleos (así ninguna hereda bloqueos de otra). Al final se juntan en `web/data/rendimiento.json` y la web las muestra en **`/rendimiento.html`**: tiempo (mediana y rango), speedup (medido, ideal y modelo de Amdahl), eficiencia, efecto de cada nivel y una tabla con Karp–Flatt. Tarda unos 30 minutos (las corridas secuenciales son las más largas, cerca de 15 minutos cada una, y GitHub corre hasta 20 servidores a la vez).
 
 **En una computadora**: doble clic en `rendimiento.bat` (usa la clave de Firebase igual que `subir-juegos.bat`). Guarda `web/data/rendimiento-pc.json`; después de subirlo con `git push`, la página permite cambiar entre "GitHub Actions" y "Tu PC".
 
-Fórmulas que usa la página:
+Fórmulas que usa la página (T = mediana de las 3 repeticiones):
 - Speedup S(p) = T(secuencial) / T(p)
-- Eficiencia E(p) = S₁(p) / p, con S₁(p) = T(1 hilo) / T(p) (nivel 1)
+- Eficiencia E(p) = S(p) / p (p = hilos del nivel 1) y, también, S(p) / núcleos de la máquina
+- Solo para el nivel 1: S₁(p) = T(1 hilo) / T(p), con los niveles 2 y 3 encendidos en ambos
 - Karp–Flatt e(p) = (1/S₁ − 1/p) / (1 − 1/p)
 - Amdahl S₁(p) = 1 / (f + (1 − f)/p); f se ajusta por mínimos cuadrados y el límite teórico es 1/f
 
