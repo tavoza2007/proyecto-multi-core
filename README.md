@@ -15,11 +15,11 @@ Implementa el *Modelo de referencia – Programación Multicore v1.7*:
 | **3er nivel**: verificar precios en las distintas tiendas | `ObtenerPreciosAsync` → `Task.WhenAll` sobre Steam, GOG, eShop, PS Store, Amazon |
 | Precio en al menos dos sitios principales | Cada juego consulta ≥ 2 tiendas según su plataforma (ver tabla abajo) |
 | Indicador de oferta y cómo saberlo | `Motor/DetectorOfertas.cs` (dos criterios, ver abajo) |
-| Score de Metacritic por consola del repo | `Fuentes/MetacriticScraper.cs` (una consulta por consola, en paralelo) |
+| Score de Metacritic por consola del repo | `Fuentes/MetacriticScraper.cs` (una consulta por consola, en paralelo cuando el nivel 3 está encendido) |
 | Tiempo de How Long To Beat | `Fuentes/HowLongToBeatScraper.cs`; la página de cada juego se encuentra con `Fuentes/WikidataScraper.cs` y queda guardada en el repo (`urlsTienda.hltb`) |
 | Validar problemas de conexión y garantizar datos actualizados | `Red/ClienteHttpResiliente.cs` + reglas de "no publicar vacío" (ver abajo) |
-| Análisis de rendimiento: secuencial vs 1, 2, 4 y máximo de hilos, speedup, eficiencia, Amdahl | Comando `rendimiento`, workflow `rendimiento.yml` y página `web/rendimiento.html` (ver abajo) |
-| Web pública (no local), actualización recurrente | `web/` en Vercel/Netlify + GitHub Actions cada 6 h + `onSnapshot` en vivo |
+| Análisis de rendimiento: secuencial vs 1, 2, 4 y máximo de hilos, efecto de cada nivel, speedup, eficiencia, Amdahl | Comando `rendimiento`, workflow `rendimiento.yml` y página `web/rendimiento.html` (ver abajo) |
+| Web pública (no local), actualización recurrente | `web/` en Vercel/Netlify + GitHub Actions cada hora (disparado por cron-job.org) + `onSnapshot` en vivo |
 | Filtros: tipo, plataforma, formato, tienda | Barra lateral de la web (con conteos) |
 | Orden: nombre, precio, % descuento, Metacritic | Selector "Ordenar por" |
 | Tarjeta: imagen, título, mejor precio, regular tachado, %, consolas, Metacritic | `tarjeta()` en `web/app.js` |
